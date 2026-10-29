@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STT 비교 테스트</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f6f6f4; --surface: #fcfcfb; --surface-2: #f0efec; --border: #e1e0db;
+    --text: #0b0b0b; --muted: #52514e; --faint: #8a8984;
+    --tuned: #2a78d6; --plain: #eb6834; --bad-bg: #fde3e1; --bad: #b42323; --good: #0a7d0a;
+    --rec: #d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #111110; --surface: #1a1a19; --surface-2: #242422; --border: #33332f;
+      --text: #f0efec; --muted: #c3c2b7; --faint: #8f8e86;
+      --tuned: #3987e5; --plain: #d95926; --bad-bg: #4a1f1d; --bad: #ff9b93; --good: #5fd35f; --rec: #e66767;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', system-ui, sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: 28px 16px 48px; }
+  h1 { font-size: 24px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .models { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .model { display: flex; gap: 10px; align-items: flex-start; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; margin-top: 6px; flex: none; }
+  .model b { display: block; }
+  .model span { color: var(--muted); font-size: 13px; }
+  label.field { display: block; font-weight: 600; margin-bottom: 6px; }
+  textarea { width: 100%; min-height: 64px; resize: vertical; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+  .chip { border: 1px solid var(--border); background: var(--surface-2); color: var(--muted); border-radius: 999px;
+    padding: 3px 10px; font-size: 12.5px; cursor: pointer; }
+  .chip:hover { color: var(--text); }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
+  button.rec { display: inline-flex; align-items: center; gap: 10px; border: 0; border-radius: 999px; padding: 12px 22px;
+    font: 600 16px/1 inherit; background: var(--text); color: var(--surface); cursor: pointer; }
+  button.rec .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--rec); }
+  button.rec.on { background: var(--rec); color: #fff; }
+  button.rec.on .dot { background: #fff; border-radius: 2px; }
+  button.rec:disabled { opacity: .5; cursor: wait; }
+  .timer { font-variant-numeric: tabular-nums; color: var(--muted); min-width: 52px; }
+  .upload { color: var(--muted); font-size: 13.5px; cursor: pointer; text-decoration: underline; }
+  .opt { color: var(--muted); font-size: 13.5px; display: inline-flex; gap: 6px; align-items: center; }
+  audio { width: 100%; max-width: 420px; height: 36px; }
+  .status { margin-top: 12px; color: var(--muted); min-height: 1.5em; font-size: 14px; }
+  .status.err { color: var(--bad); }
+  .results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .result { border-top: 4px solid var(--c); }
+  .result h2 { font-size: 15px; margin: 0; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .meta { color: var(--faint); font-size: 12.5px; font-weight: 400; }
+  .text { font-size: 18px; line-height: 1.6; margin: 10px 0 12px; word-break: keep-all; overflow-wrap: anywhere; min-height: 1.6em; }
+  .text mark { background: var(--bad-bg); color: var(--bad); border-radius: 3px; padding: 0 1px; }
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 10px; }
+  .stat small { display: block; color: var(--faint); font-size: 12px; }
+  .stat strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+  .badge { font-size: 12px; font-weight: 600; color: var(--good); border: 1px solid currentColor; border-radius: 999px; padding: 1px 8px; }
+  .norm { margin-top: 12px; background: var(--surface-2); border-radius: 8px; padding: 10px 12px; font-size: 14px; }
+  .norm small { color: var(--faint); display: block; margin-bottom: 2px; }
+  .norm code { font-size: 12.5px; color: var(--muted); }
+  .note { color: var(--faint); font-size: 12.5px; margin-top: 20px; }
+  .placeholder { color: var(--faint); font-size: 15px; }
+  @media (max-width: 720px) { .models, .results { grid-template-columns: 1fr; } h1 { font-size: 21px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>STT 비교 테스트</h1>
+  <p class="sub">한 번 녹음하면 두 STT가 동시에 받아씁니다. 사투리와 영어 기술 용어를 섞어 말해 보세요.</p>
+
+  <section class="card">
+    <div class="models">
+      <div class="model"><i class="swatch" style="background:var(--tuned)"></i>
+        <div><b>jaewon-stt (튜닝)</b><span>Whisper large-v3 + 사투리·기술 용어 prompt 튜닝 · v0.1, 파인튜닝 전</span></div></div>
+      <div class="model"><i class="swatch" style="background:var(--plain)"></i>
+        <div><b>Whisper large-v3 (순수)</b><span>튜닝 없음 · 한국어 지정만</span></div></div>
+    </div>
+
+    <label class="field" for="ref">정답 문장 <span class="meta">(선택 — 입력하면 문자 오류율 CER과 틀린 글자를 표시)</span></label>
+    <textarea id="ref" placeholder="예: 야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도."></textarea>
+    <div class="chips" id="chips"></div>
+
+    <div class="controls">
+      <button class="rec" id="rec" type="button"><i class="dot"></i><span>녹음 시작</span></button>
+      <span class="timer" id="timer">0:00</span>
+      <label class="upload">파일로 테스트<input id="file" type="file" accept="audio/*" hidden></label>
+      <label class="opt"><input id="normalize" type="checkbox" checked> 표준어 변환도 보기</label>
+    </div>
+    <div class="controls"><audio id="player" controls hidden></audio></div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="results">
+    <article class="card result" style="--c:var(--tuned)" id="r-tuned">
+      <h2><span>jaewon-stt (튜닝)</span><span class="meta" data-meta></span></h2>
+      <div class="text" data-text><span class="placeholder">녹음하면 결과가 여기에 표시됩니다.</span></div>
+      <div class="stats" data-stats hidden></div><div data-norm></div>
+    </article>
+    <article class="card result" style="--c:var(--plain)" id="r-plain">
+      <h2><span>Whisper large-v3 (순수)</span><span class="meta" data-meta></span></h2>
+      <div class="text" data-text><span class="placeholder">녹음하면 결과가 여기에 표시됩니다.</span></div>
+      <div class="stats" data-stats hidden></div><div data-norm></div>
+    </article>
+  </section>
+
+  <p class="note">녹음은 서버에 저장하지 않습니다. 외부 STT 무료 한도를 공유하므로 1분에 최대 8회로 제한됩니다. 최대 녹음 60초 / 파일 10MB.
+    CER은 공백·문장부호·대소문자를 무시하고 계산합니다.</p>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const SAMPLES = ['야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도.', 'Ingress가 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.',
+  'Deployment가 왜 자꾸 죽는대유? 로그 좀 봐줘유.', 'Argo CD가 왜 자꾸 죽나? 로그 좀 봐주드래요.', 'PostgreSQL가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.'];
+const REGION = ['경상', '전라', '충청', '강원', '제주'];
+SAMPLES.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'chip'; b.textContent = REGION[i] + ' 예문';
+  b.title = s; b.onclick = () => { $('#ref').value = s; };
+  $('#chips').append(b);
+});
+
+// CER: letters/digits only, case-folded, arae-a mapped to modern vowels (same as evaluate_baseline.py).
+function modernize(t) {
+  return t.normalize('NFD').replace(/([ᄀ-ᄒ])([ᆞᆢ])([ᆨ-ᇂ]?)/g, (_, l, v, tail) =>
+    String.fromCharCode(0xAC00 + ((l.charCodeAt(0) - 0x1100) * 21 + (v === 'ᆞ' ? 0 : 6)) * 28 + (tail ? tail.charCodeAt(0) - 0x11A7 : 0)));
+}
+const compact = (t) => modernize(t).normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+function distance(a, b) {
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur.push(Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] !== b[j - 1])));
+    prev = cur;
+  }
+  return prev[b.length];
+}
+const cer = (ref, hyp) => distance(compact(ref), compact(hyp)) / Math.max(compact(ref).length, 1);
+
+// Mark hypothesis characters that do not align to the reference (spaces/punctuation ignored).
+function markErrors(ref, hyp) {
+  const r = compact(ref), chars = [...modernize(hyp).normalize('NFC')];
+  const idx = []; chars.forEach((c, i) => { if (/[\p{L}\p{N}]/u.test(c)) idx.push(i); });
+  const h = idx.map((i) => chars[i].toLowerCase());
+  const d = Array.from({ length: r.length + 1 }, (_, i) => [i, ...Array(h.length).fill(0)]);
+  for (let j = 1; j <= h.length; j++) d[0][j] = j;
+  for (let i = 1; i <= r.length; i++) for (let j = 1; j <= h.length; j++)
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (r[i - 1] !== h[j - 1]));
+  const wrong = new Set(); let i = r.length, j = h.length;
+  while (j > 0) {
+    if (i > 0 && d[i][j] === d[i - 1][j - 1] + (r[i - 1] !== h[j - 1])) { if (r[i - 1] !== h[j - 1]) wrong.add(idx[j - 1]); i--; j--; }
+    else if (d[i][j] === d[i][j - 1] + 1) { wrong.add(idx[j - 1]); j--; }
+    else i--;
+  }
+  const esc = (c) => c.replace(/[&<>"]/g, (x) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[x]);
+  return chars.map((c, k) => wrong.has(k) ? `<mark>${esc(c)}</mark>` : esc(c)).join('');
+}
+
+const status = (msg, err) => { $('#status').textContent = msg; $('#status').className = 'status' + (err ? ' err' : ''); };
+const ERRORS = { rate_limited: '요청이 너무 많습니다. 1분 뒤 다시 시도해 주세요.', busy: '다른 요청을 처리 중입니다. 잠시 후 다시 시도해 주세요.',
+  too_large: '파일이 10MB를 넘습니다.', audio_too_short: '녹음이 너무 짧습니다.', provider_rate_limited: 'STT 제공업체 한도 초과(429)',
+  audio_required: '오디오 파일만 지원합니다.' };
+
+function render(data) {
+  const ref = $('#ref').value.trim();
+  const scores = {};
+  for (const r of data.results) {
+    const card = $('#r-' + r.id);
+    card.querySelector('[data-meta]').textContent = r.ms ? (r.ms / 1000).toFixed(2) + '초' : '';
+    const text = card.querySelector('[data-text]');
+    const stats = card.querySelector('[data-stats]');
+    card.querySelector('[data-norm]').innerHTML = '';
+    if (r.error) { text.innerHTML = `<span class="placeholder">${ERRORS[r.error] || '오류: ' + r.error}</span>`; stats.hidden = true; continue; }
+    text.innerHTML = ref ? markErrors(ref, r.text) : (r.text.replace(/[&<>]/g, (x) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[x]) || '<span class="placeholder">(인식된 말 없음)</span>');
+    if (ref) scores[r.id] = cer(ref, r.text);
+    stats.hidden = false;
+    stats.innerHTML = `<div class="stat"><small>글자 수</small><strong>${compact(r.text).length}</strong></div>` +
+      (ref ? `<div class="stat"><small>CER</small><strong>${(scores[r.id] * 100).toFixed(1)}%</strong></div>` : '');
+    if (r.normalized) {
+      const n = r.normalized;
+      card.querySelector('[data-norm]').innerHTML = n.error ? `<div class="norm"><small>표준어 변환</small>변환 실패 (${n.error})</div>` :
+        `<div class="norm"><small>표준어 변환 · ${data.normalize_model}</small>${n.standard.replace(/[&<>]/g, '')}` +
+        (n.intent ? `<br><code>${JSON.stringify(n.intent).replace(/[&<>]/g, '')}</code>` : '') + '</div>';
+    }
+  }
+  if (ref && 'tuned' in scores && 'plain' in scores && scores.tuned !== scores.plain) {
+    const win = scores.tuned < scores.plain ? 'tuned' : 'plain';
+    $('#r-' + win).querySelector('[data-stats]').insertAdjacentHTML('beforeend',
+      `<div class="stat"><small>비교</small><span class="badge">CER ${(Math.abs(scores.tuned - scores.plain) * 100).toFixed(1)}%p 낮음</span></div>`);
+  }
+}
+
+async function submit(blob) {
+  $('#player').src = URL.createObjectURL(blob); $('#player').hidden = false;
+  $('#rec').disabled = true;
+  status('두 모델이 받아쓰는 중…' + ($('#normalize').checked ? ' (표준어 변환 포함)' : ''));
+  try {
+    const res = await fetch('/api/compare?normalize=' + ($('#normalize').checked ? 1 : 0), {
+      method: 'POST', headers: { 'Content-Type': blob.type || 'audio/webm' }, body: blob });
+    const data = await res.json().catch(() => ({ error: 'invalid_response' }));
+    if (!res.ok) throw new Error(ERRORS[data.error] || '요청 실패 (' + res.status + ')');
+    render(data);
+    status(`완료 · ${(data.bytes / 1024).toFixed(0)}KB`);
+  } catch (e) { status(e.message, true); }
+  finally { $('#rec').disabled = false; }
+}
+
+let recorder = null, chunks = [], started = 0, tick = null;
+async function toggle() {
+  if (recorder) { recorder.stop(); return; }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+    const type = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg'].find((t) => MediaRecorder.isTypeSupported(t)) || '';
+    recorder = new MediaRecorder(stream, type ? { mimeType: type } : undefined);
+    chunks = [];
+    recorder.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+    recorder.onstop = () => {
+      stream.getTracks().forEach((t) => t.stop()); clearInterval(tick);
+      $('#rec').classList.remove('on'); $('#rec').querySelector('span').textContent = '녹음 시작';
+      const blob = new Blob(chunks, { type: (recorder.mimeType || 'audio/webm').split(';')[0] });
+      recorder = null; submit(blob);
+    };
+    recorder.start(); started = Date.now();
+    $('#rec').classList.add('on'); $('#rec').querySelector('span').textContent = '녹음 중지';
+    status('녹음 중… 말이 끝나면 버튼을 누르세요.');
+    tick = setInterval(() => {
+      const s = Math.floor((Date.now() - started) / 1000);
+      $('#timer').textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+      if (s >= 60 && recorder) recorder.stop();
+    }, 250);
+  } catch (e) {
+    status(e.name === 'NotAllowedError' ? '마이크 권한이 거부되었습니다. 브라우저 주소창에서 마이크를 허용해 주세요.' : '마이크를 사용할 수 없습니다: ' + e.message, true);
+  }
+}
+$('#rec').onclick = toggle;
+$('#file').onchange = (e) => { const f = e.target.files[0]; if (f) submit(f); e.target.value = ''; };
+</script>
+</body>
+</html>

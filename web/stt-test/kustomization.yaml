@@ -1,0 +1,13 @@
+# kubectl apply -k deploy/stt-test
+# The app ConfigMap name carries a content hash, so editing server.js/index.html and
+# re-applying rolls the Deployment automatically. The key Secret is managed by Set-SttTestKey.ps1.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - stt-test.yaml
+configMapGenerator:
+  - name: stt-test-app
+    namespace: stt-test
+    files:
+      - server.js
+      - index.html

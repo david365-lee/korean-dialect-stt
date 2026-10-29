@@ -8,6 +8,10 @@
 > 이 버전은 **기준선 측정과 평가 체계까지**만 포함한다. STT 모델 파인튜닝은 **아직 수행하지 않았다.**
 > 현재 `jaewon-stt`는 학습된 모델이 아니라 기존 Whisper에 사투리·기술 용어 prompt를 붙인 **임시 백엔드**이며, 아래 수치는 모두 "학습 전" 기준선이다.
 > 4개 권역(경상·전라·충청·강원)의 실음성 평가, 학습 데이터 구성, 파인튜닝, 성능 비교는 2차 이후 과제다.
+>
+> **2차는 보류했다** — 외부 GPU 비용(권장 약 30만 원), 4~6주 일정, 데이터·약관 절차, 로컬 CPU 학습의 기간(수 주)과 운영 서비스 영향 때문이다. 근거와 재개 조건: [docs/PHASE2-DECISION.md](docs/PHASE2-DECISION.md)
+>
+> 1차 모델은 **비교 테스트 페이지**에서 바로 써 볼 수 있다: 한 번 녹음 → 튜닝(jaewon-stt) vs 순수 Whisper 동시 비교 ([web/stt-test](web/stt-test/))
 
 ```text
 "야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도."        ← 사투리 + 영어 기술 용어
@@ -160,7 +164,9 @@
 | **학습** | **Whisper LoRA 파인튜닝** | ⏳ **미완료 — 외부 GPU 필요** |
 | 학습 | 정규화 LLM 개선 (방언 few-shot·사전) | ⏳ 미완료 |
 | 검증 | 파인튜닝 모델 vs 기준선 비교, 카나리 교체 | ⏳ 미완료 |
+| 서비스 | 비교 테스트 페이지 (튜닝 vs 순수 STT, CER·틀린 글자·표준어 변환 표시) | ✅ 완료 — [web/stt-test](web/stt-test/) |
 | 서비스 | Dialect Gateway API, 스트리밍 | ⏳ 설계만 완료 ([9장](#9-서비스-방법)) |
+| 결정 | 2차 파인튜닝 | ⏸️ **보류** — [docs/PHASE2-DECISION.md](docs/PHASE2-DECISION.md) |
 
 현재 모델 구성:
 
@@ -288,7 +294,8 @@ korean-dialect-stt/
 ├── make_charts.py                # results/ → docs/charts/ 그래프
 ├── data/                         # 사투리 문장 틀, 기술 용어
 ├── litellm/register_jaewon_audio.py
-├── docs/PIPELINE.md, docs/charts/
+├── web/stt-test/                 # 비교 테스트 페이지 (Node 서버 + Kubernetes 매니페스트)
+├── docs/PIPELINE.md, docs/PHASE2-DECISION.md, docs/charts/
 └── results/2026-10-29-synthetic/, results/2026-10-29-jeju/
 ```
 
@@ -410,4 +417,4 @@ POST /v1/dialect/understand      multipart: file=<audio>, style=request|faithful
 
 ---
 
-*v0.1.0 · 2026-10-29 · 1차분(기준선·평가 체계) — 파인튜닝 미완료. 변경 이력은 [CHANGELOG.md](CHANGELOG.md).*
+*v0.1.1 · 2026-10-29 · 1차분(기준선·평가 체계·비교 테스트 페이지) — 파인튜닝 미완료, 2차 보류. 변경 이력은 [CHANGELOG.md](CHANGELOG.md).*
