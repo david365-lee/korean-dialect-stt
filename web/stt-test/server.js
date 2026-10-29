@@ -16,10 +16,14 @@ const MODELS = [
   { id: 'tuned', model: 'jaewon-stt', fields: {} },
   { id: 'plain', model: 'groq-whisper-large-v3', fields: { language: 'ko' } },
 ];
-const PROMPT = `너는 한국어 방언 음성 인식 결과를 표준어로 바꾸는 변환기다.
-입력은 방언을 들리는 대로 받아쓴 문장이며 영어 기술 용어가 섞여 있을 수 있다.
-규칙: 뜻을 바꾸지 말고 표준어로 옮긴다. 영어 기술 용어는 영어 표기로 유지하고, 한글로 잘못 받아쓴 용어(예: 키버넷 → Kubernetes)는 바로잡는다.
-JSON만 출력한다: {"standard": "...", "intent": {"action": "...", "target": "...", "symptom": "..."}}`;
+// One LLM call interprets both transcripts of the same recording and judges whether they agree.
+const PROMPT = `같은 녹음을 두 STT가 받아쓴 결과 A와 B가 주어진다. 사투리와 영어 기술 용어가 섞여 있고 인식 오류가 있을 수 있다.
+각 문장을 받아쓴 그대로 읽고 해석한다(다른 쪽 문장으로 보정하지 않는다).
+- meaning: 말한 사람이 원하는 것을 아주 간략히 한 문장(30자 이내)
+- standard: 표준어 문장. 영어 기술 용어는 영어 표기로, 한글로 잘못 받아쓴 용어(예: 키버넷 → Kubernetes)는 바로잡는다
+- intent: {"action", "target", "symptom"} (짧은 한국어)
+마지막으로 A와 B의 해석이 같은 의미인지(same_meaning)와 다르면 핵심 차이(difference, 20자 이내)를 적는다.
+JSON만 출력한다: {"A": {"meaning": "", "standard": "", "intent": {}}, "B": {"meaning": "", "standard": "", "intent": {}}, "same_meaning": true, "difference": ""}`;
 const INDEX = fs.readFileSync(path.join(__dirname, 'index.html'));
 const hits = new Map();
 let active = 0;
@@ -80,17 +84,20 @@ async function transcribe(spec, audio, type) {
   return { id: spec.id, model: spec.model, text: result.data ? String(result.data.text || '').trim() : '', ms: result.ms, error: result.error };
 }
 
-async function normalize(text) {
-  if (!text) return null;
+async function interpret(tuned, plain) {
   const result = await call('/chat/completions', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: LLM, temperature: 0, max_tokens: 300, messages: [{ role: 'system', content: PROMPT }, { role: 'user', content: text }] }),
+    body: JSON.stringify({ model: LLM, temperature: 0, max_tokens: 600, messages: [
+      { role: 'system', content: PROMPT },
+      { role: 'user', content: `A: ${tuned || '(인식된 말 없음)'}\nB: ${plain || '(인식된 말 없음)'}` }] }),
   });
   if (!result.data) return { error: result.error, ms: result.ms };
   const content = result.data.choices?.[0]?.message?.content || '';
   try {
     const parsed = JSON.parse((content.match(/\{[\s\S]*\}/) || ['{}'])[0]);
-    return { standard: String(parsed.standard || ''), intent: parsed.intent || null, ms: result.ms };
+    const pick = (x) => ({ meaning: String(x?.meaning || ''), standard: String(x?.standard || ''), intent: x?.intent || null });
+    return { tuned: pick(parsed.A), plain: pick(parsed.B), same_meaning: parsed.same_meaning === true,
+      difference: String(parsed.difference || ''), ms: result.ms };
   } catch {
     return { error: 'unparsable', ms: result.ms };
   }
@@ -108,11 +115,11 @@ async function compare(req, res, url) {
     const audio = await readBody(req);
     if (audio.length < 1000) return send(res, 400, { error: 'audio_too_short' });
     const results = await Promise.all(MODELS.map((spec) => transcribe(spec, audio, type.split(';')[0])));
-    if (url.searchParams.get('normalize') === '1') {
-      const normalized = await Promise.all(results.map((r) => normalize(r.text)));
-      results.forEach((r, i) => { r.normalized = normalized[i]; });
+    let interpretation = null;
+    if (url.searchParams.get('interpret') === '1' && results.some((r) => r.text)) {
+      interpretation = await interpret(results[0].text, results[1].text);
     }
-    send(res, 200, { bytes: audio.length, normalize_model: LLM, results });
+    send(res, 200, { bytes: audio.length, llm_model: LLM, results, interpretation });
   } catch (error) {
     send(res, error.status || 500, { error: error.status === 413 ? 'too_large' : 'server_error' });
   } finally {

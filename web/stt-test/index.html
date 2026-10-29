@@ -63,9 +63,17 @@
   .stat small { display: block; color: var(--faint); font-size: 12px; }
   .stat strong { font-size: 20px; font-variant-numeric: tabular-nums; }
   .badge { font-size: 12px; font-weight: 600; color: var(--good); border: 1px solid currentColor; border-radius: 999px; padding: 1px 8px; }
-  .norm { margin-top: 12px; background: var(--surface-2); border-radius: 8px; padding: 10px 12px; font-size: 14px; }
-  .norm small { color: var(--faint); display: block; margin-bottom: 2px; }
-  .norm code { font-size: 12.5px; color: var(--muted); }
+  .interp { margin-top: 12px; background: var(--surface-2); border-radius: 8px; padding: 10px 12px; font-size: 14px; }
+  .interp small { color: var(--faint); display: block; margin-bottom: 2px; }
+  .interp .meaning { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .interp .std { color: var(--muted); }
+  .interp code { font-size: 12.5px; color: var(--faint); }
+  .verdict { margin-top: 16px; display: flex; gap: 12px; align-items: center; padding: 14px 18px; }
+  .verdict .icon { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; flex: none;
+    font-weight: 700; color: #fff; background: var(--good); }
+  .verdict.diff .icon { background: var(--rec); }
+  .verdict b { display: block; }
+  .verdict span { color: var(--muted); font-size: 13.5px; }
   .note { color: var(--faint); font-size: 12.5px; margin-top: 20px; }
   .placeholder { color: var(--faint); font-size: 15px; }
   @media (max-width: 720px) { .models, .results { grid-template-columns: 1fr; } h1 { font-size: 21px; } }
@@ -92,22 +100,27 @@
       <button class="rec" id="rec" type="button"><i class="dot"></i><span>녹음 시작</span></button>
       <span class="timer" id="timer">0:00</span>
       <label class="upload">파일로 테스트<input id="file" type="file" accept="audio/*" hidden></label>
-      <label class="opt"><input id="normalize" type="checkbox" checked> 표준어 변환도 보기</label>
+      <label class="opt"><input id="interpret" type="checkbox" checked> LLM 의미 해석도 보기</label>
     </div>
     <div class="controls"><audio id="player" controls hidden></audio></div>
     <div class="status" id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="card verdict" id="verdict" hidden role="status">
+    <i class="icon" data-icon>✓</i>
+    <div><b data-title></b><span data-detail></span></div>
   </section>
 
   <section class="results">
     <article class="card result" style="--c:var(--tuned)" id="r-tuned">
       <h2><span>jaewon-stt (튜닝)</span><span class="meta" data-meta></span></h2>
       <div class="text" data-text><span class="placeholder">녹음하면 결과가 여기에 표시됩니다.</span></div>
-      <div class="stats" data-stats hidden></div><div data-norm></div>
+      <div class="stats" data-stats hidden></div><div data-interp></div>
     </article>
     <article class="card result" style="--c:var(--plain)" id="r-plain">
       <h2><span>Whisper large-v3 (순수)</span><span class="meta" data-meta></span></h2>
       <div class="text" data-text><span class="placeholder">녹음하면 결과가 여기에 표시됩니다.</span></div>
-      <div class="stats" data-stats hidden></div><div data-norm></div>
+      <div class="stats" data-stats hidden></div><div data-interp></div>
     </article>
   </section>
 
@@ -167,6 +180,31 @@ const ERRORS = { rate_limited: '요청이 너무 많습니다. 1분 뒤 다시 �
   too_large: '파일이 10MB를 넘습니다.', audio_too_short: '녹음이 너무 짧습니다.', provider_rate_limited: 'STT 제공업체 한도 초과(429)',
   audio_required: '오디오 파일만 지원합니다.' };
 
+const esc = (s) => String(s).replace(/[&<>"]/g, (x) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[x]);
+
+function renderInterpretation(data) {
+  const box = $('#verdict'), info = data.interpretation;
+  box.hidden = !info;
+  if (!info) return;
+  const seconds = info.ms ? ` · ${(info.ms / 1000).toFixed(2)}초` : '';
+  box.classList.toggle('diff', !!info.error || !info.same_meaning);
+  box.querySelector('[data-icon]').textContent = info.error ? '!' : info.same_meaning ? '✓' : '≠';
+  box.querySelector('[data-title]').textContent = info.error ? 'LLM 해석 실패' :
+    info.same_meaning ? '두 판독의 의미가 같습니다' : '두 판독의 의미가 다릅니다';
+  box.querySelector('[data-detail]').textContent = info.error ? `${info.error}${seconds}` :
+    `${info.same_meaning ? '' : '차이: ' + (info.difference || '—') + ' · '}${data.llm_model}${seconds}`;
+  if (info.error) return;
+  for (const id of ['tuned', 'plain']) {
+    const x = info[id];
+    if (!x || !x.meaning) continue;
+    const intent = x.intent && typeof x.intent === 'object' ? Object.entries(x.intent).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
+    $('#r-' + id).querySelector('[data-interp]').innerHTML =
+      `<div class="interp"><small>LLM 의미 해석</small><div class="meaning">${esc(x.meaning)}</div>` +
+      (x.standard ? `<div class="std">표준어: ${esc(x.standard)}</div>` : '') +
+      (intent ? `<code>${esc(intent)}</code>` : '') + '</div>';
+  }
+}
+
 function render(data) {
   const ref = $('#ref').value.trim();
   const scores = {};
@@ -175,20 +213,15 @@ function render(data) {
     card.querySelector('[data-meta]').textContent = r.ms ? (r.ms / 1000).toFixed(2) + '초' : '';
     const text = card.querySelector('[data-text]');
     const stats = card.querySelector('[data-stats]');
-    card.querySelector('[data-norm]').innerHTML = '';
+    card.querySelector('[data-interp]').innerHTML = '';
     if (r.error) { text.innerHTML = `<span class="placeholder">${ERRORS[r.error] || '오류: ' + r.error}</span>`; stats.hidden = true; continue; }
     text.innerHTML = ref ? markErrors(ref, r.text) : (r.text.replace(/[&<>]/g, (x) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[x]) || '<span class="placeholder">(인식된 말 없음)</span>');
     if (ref) scores[r.id] = cer(ref, r.text);
     stats.hidden = false;
     stats.innerHTML = `<div class="stat"><small>글자 수</small><strong>${compact(r.text).length}</strong></div>` +
       (ref ? `<div class="stat"><small>CER</small><strong>${(scores[r.id] * 100).toFixed(1)}%</strong></div>` : '');
-    if (r.normalized) {
-      const n = r.normalized;
-      card.querySelector('[data-norm]').innerHTML = n.error ? `<div class="norm"><small>표준어 변환</small>변환 실패 (${n.error})</div>` :
-        `<div class="norm"><small>표준어 변환 · ${data.normalize_model}</small>${n.standard.replace(/[&<>]/g, '')}` +
-        (n.intent ? `<br><code>${JSON.stringify(n.intent).replace(/[&<>]/g, '')}</code>` : '') + '</div>';
-    }
   }
+  renderInterpretation(data);
   if (ref && 'tuned' in scores && 'plain' in scores && scores.tuned !== scores.plain) {
     const win = scores.tuned < scores.plain ? 'tuned' : 'plain';
     $('#r-' + win).querySelector('[data-stats]').insertAdjacentHTML('beforeend',
@@ -199,9 +232,9 @@ function render(data) {
 async function submit(blob) {
   $('#player').src = URL.createObjectURL(blob); $('#player').hidden = false;
   $('#rec').disabled = true;
-  status('두 모델이 받아쓰는 중…' + ($('#normalize').checked ? ' (표준어 변환 포함)' : ''));
+  status('두 모델이 받아쓰는 중…' + ($('#interpret').checked ? ' (LLM 의미 해석 포함)' : ''));
   try {
-    const res = await fetch('/api/compare?normalize=' + ($('#normalize').checked ? 1 : 0), {
+    const res = await fetch('/api/compare?interpret=' + ($('#interpret').checked ? 1 : 0), {
       method: 'POST', headers: { 'Content-Type': blob.type || 'audio/webm' }, body: blob });
     const data = await res.json().catch(() => ({ error: 'invalid_response' }));
     if (!res.ok) throw new Error(ERRORS[data.error] || '요청 실패 (' + res.status + ')');

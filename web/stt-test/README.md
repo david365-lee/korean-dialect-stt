@@ -8,7 +8,7 @@
 | Whisper large-v3 (순수) | `groq-whisper-large-v3` | `language=ko`만 지정 (1차 평가 ②와 동일) |
 
 - 정답 문장을 입력하면 각 결과의 CER과 틀린 글자를 표시한다(`evaluate_baseline.py`와 같은 계산).
-- "표준어 변환도 보기"를 켜면 두 전사를 `gemma4-26b-a4b`로 표준어 + 의도 JSON으로 변환한다.
+- "LLM 의미 해석도 보기"를 켜면 두 전사를 **한 번의** `gemma4-26b-a4b` 호출에 함께 넣어, 카드마다 아주 짧은 의미 해석(30자 이내)·표준어·의도를 표시하고, 두 판독의 의미가 같은지(다르면 핵심 차이)를 상단 배너로 보여 준다. 각 전사는 다른 쪽으로 보정하지 않고 받아쓴 그대로 해석한다.
 - 녹음 최대 60초, 파일 10MB(Ingress 11m). 녹음은 저장하지 않는다.
 - 서버는 의존성 없는 Node 22(`server.js`), 페이지는 `index.html`. 둘 다 ConfigMap `stt-test-app`으로 마운트한다.
 - 남용 방지: IP당 분당 8회(`RATE_PER_MINUTE`), 동시 2건, 같은 Origin만 허용. Groq 무료 한도를 MDAI와 공유하므로 완화하지 않는다.

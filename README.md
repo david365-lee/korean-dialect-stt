@@ -164,7 +164,7 @@
 | **학습** | **Whisper LoRA 파인튜닝** | ⏳ **미완료 — 외부 GPU 필요** |
 | 학습 | 정규화 LLM 개선 (방언 few-shot·사전) | ⏳ 미완료 |
 | 검증 | 파인튜닝 모델 vs 기준선 비교, 카나리 교체 | ⏳ 미완료 |
-| 서비스 | 비교 테스트 페이지 (튜닝 vs 순수 STT, CER·틀린 글자·표준어 변환 표시) | ✅ 완료 — [web/stt-test](web/stt-test/) |
+| 서비스 | 비교 테스트 페이지 (튜닝 vs 순수 STT, CER·틀린 글자, LLM 의미 해석·일치 판정) | ✅ 완료 — [web/stt-test](web/stt-test/) |
 | 서비스 | Dialect Gateway API, 스트리밍 | ⏳ 설계만 완료 ([9장](#9-서비스-방법)) |
 | 결정 | 2차 파인튜닝 | ⏸️ **보류** — [docs/PHASE2-DECISION.md](docs/PHASE2-DECISION.md) |
 
