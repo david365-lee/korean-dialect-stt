@@ -1,0 +1,47 @@
+{
+  "jaewon-stt+llm": {
+    "summary": {
+      "utterances": 150,
+      "mean_cer": 0.2848,
+      "term_recall": null,
+      "normalized_term_recall": null,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.5252
+    },
+    "stt_model": "jaewon-stt",
+    "language": null,
+    "llm_model": "gemma4-26b-a4b",
+    "prompt": "faithful"
+  },
+  "whisper-noprompt": {
+    "summary": {
+      "utterances": 150,
+      "mean_cer": 0.3013,
+      "term_recall": null
+    },
+    "stt_model": "groq-whisper-large-v3",
+    "language": "ko",
+    "llm_model": null,
+    "prompt": null
+  },
+  "oracle-normalize": {
+    "summary": {
+      "utterances": 150,
+      "mean_cer": 0.0,
+      "term_recall": null,
+      "normalized_term_recall": null,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.4416
+    },
+    "stt_model": "reference-transcript (oracle)",
+    "language": null,
+    "llm_model": "gemma4-26b-a4b",
+    "prompt": "faithful"
+  },
+  "set": {
+    "source": "Kakao Brain JSS (CC BY-NC-SA 4.0), single native Jeju speaker",
+    "utterances": 150,
+    "standard_references": 149,
+    "note": "Per-utterance transcripts omitted (non-commercial license); rebuild with prepare_jss.py."
+  }
+}
