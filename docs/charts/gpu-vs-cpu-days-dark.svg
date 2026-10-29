@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="344" viewBox="0 0 820 344" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="학습 완료까지 걸리는 기간 — GPU vs CPU">
+<defs><linearGradient id="ggpuvscpudays" x1="0" x2="1"><stop offset="0" stop-color="#3987e5"/><stop offset="1" stop-color="#9085e9"/></linearGradient></defs>
+<rect width="100%" height="100%" rx="12" fill="#1a1a19" stroke="#2e2e2c"/>
+<rect x="0" y="0" width="820" height="6" rx="3" fill="url(#ggpuvscpudays)"/>
+<text x="24" y="40" font-size="19" font-weight="700" fill="#f0efec">학습 완료까지 걸리는 기간 — GPU vs CPU</text>
+<text x="24" y="62" font-size="12.5" fill="#c3c2b7">실험 포함 · 일 단위 (CPU는 범위의 중간값) · 낮을수록 좋음 ↓</text>
+<line x1="168.0" y1="78" x2="168.0" y2="292" stroke="#2e2e2c"/>
+<text x="168.0" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">0일</text>
+<line x1="256.7" y1="78" x2="256.7" y2="292" stroke="#2e2e2c"/>
+<text x="256.7" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">10일</text>
+<line x1="345.3" y1="78" x2="345.3" y2="292" stroke="#2e2e2c"/>
+<text x="345.3" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">20일</text>
+<line x1="434.0" y1="78" x2="434.0" y2="292" stroke="#2e2e2c"/>
+<text x="434.0" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">30일</text>
+<line x1="522.7" y1="78" x2="522.7" y2="292" stroke="#2e2e2c"/>
+<text x="522.7" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">40일</text>
+<line x1="611.3" y1="78" x2="611.3" y2="292" stroke="#2e2e2c"/>
+<text x="611.3" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">50일</text>
+<line x1="700.0" y1="78" x2="700.0" y2="292" stroke="#2e2e2c"/>
+<text x="700.0" y="309" font-size="11" text-anchor="middle" fill="#c3c2b7">60일</text>
+<line x1="168" y1="78" x2="168" y2="292" stroke="#57564f"/>
+<text x="154" y="101.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">GPU H100 (turbo)</text>
+<path d="M168,86 H171.86666666666667 Q176.86666666666667,86 176.86666666666667,91 V101 Q176.86666666666667,106 171.86666666666667,106 H168 Z" fill="#3987e5"><title>외부 GPU: 1일</title></path>
+<text x="183.9" y="101" font-size="13" font-weight="700" fill="#f0efec">1일</text>
+<rect x="208.9" y="85.0" width="63.2" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="215.9" y="100.5" font-size="12" font-weight="700" fill="#c3c2b7">약 22시간</text>
+<text x="154" y="141.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">GPU A100 (turbo)</text>
+<path d="M168,126 H180.73333333333335 Q185.73333333333335,126 185.73333333333335,131 V141 Q185.73333333333335,146 180.73333333333335,146 H168 Z" fill="#3987e5"><title>외부 GPU: 2일</title></path>
+<text x="192.7" y="141" font-size="13" font-weight="700" fill="#f0efec">2일</text>
+<rect x="217.7" y="125.0" width="63.2" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="224.7" y="140.5" font-size="12" font-weight="700" fill="#c3c2b7">약 47시간</text>
+<text x="154" y="181.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">CPU 디코더만</text>
+<path d="M168,166 H216.2 Q221.2,166 221.2,171 V181 Q221.2,186 216.2,186 H168 Z" fill="#d95926"><title>외부 GPU: 6일</title></path>
+<text x="228.2" y="181" font-size="13" font-weight="700" fill="#f0efec">6일</text>
+<rect x="253.2" y="165.0" width="46.8" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="260.2" y="180.5" font-size="12" font-weight="700" fill="#c3c2b7">5–7일</text>
+<text x="154" y="221.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">CPU 데이터 축소</text>
+<path d="M168,206 H207.33333333333334 Q212.33333333333334,206 212.33333333333334,211 V221 Q212.33333333333334,226 207.33333333333334,226 H168 Z" fill="#d95926"><title>외부 GPU: 5일</title></path>
+<text x="219.3" y="221" font-size="13" font-weight="700" fill="#f0efec">5일</text>
+<rect x="244.3" y="205.0" width="46.8" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="251.3" y="220.5" font-size="12" font-weight="700" fill="#c3c2b7">4–6일</text>
+<text x="154" y="261.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">CPU 전체 LoRA</text>
+<path d="M168,246 H535.4 Q540.4,246 540.4,251 V261 Q540.4,266 535.4,266 H168 Z" fill="#d95926"><title>외부 GPU: 42일</title></path>
+<text x="547.4" y="261" font-size="13" font-weight="700" fill="#f0efec">42일</text>
+<rect x="579.9" y="245.0" width="63.2" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="586.9" y="260.5" font-size="12" font-weight="700" fill="#c3c2b7">4주–2개월</text>
+<text x="24" y="330" font-size="12" fill="#c3c2b7">파랑 = 외부 GPU, 주황 = 로컬 CPU. CPU는 같은 PC의 클러스터 서비스에 영향.</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="344" viewBox="0 0 820 344" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="외부 GPU — 모델별 총비용 (20% 상향)">
+<defs><linearGradient id="ggpucostbymodel" x1="0" x2="1"><stop offset="0" stop-color="#2a78d6"/><stop offset="1" stop-color="#6250d6"/></linearGradient></defs>
+<rect width="100%" height="100%" rx="12" fill="#fcfcfb" stroke="#e4e3df"/>
+<rect x="0" y="0" width="820" height="6" rx="3" fill="url(#ggpucostbymodel)"/>
+<text x="24" y="40" font-size="19" font-weight="700" fill="#0b0b0b">외부 GPU — 모델별 총비용 (20% 상향)</text>
+<text x="24" y="62" font-size="12.5" fill="#52514e">A100 80GB · 학습+스토리지+서빙 테스트+예비비 · 낮을수록 좋음 ↓</text>
+<line x1="168.0" y1="78" x2="168.0" y2="292" stroke="#e4e3df"/>
+<text x="168.0" y="309" font-size="11" text-anchor="middle" fill="#52514e">0만 원</text>
+<line x1="274.4" y1="78" x2="274.4" y2="292" stroke="#e4e3df"/>
+<text x="274.4" y="309" font-size="11" text-anchor="middle" fill="#52514e">10만 원</text>
+<line x1="380.8" y1="78" x2="380.8" y2="292" stroke="#e4e3df"/>
+<text x="380.8" y="309" font-size="11" text-anchor="middle" fill="#52514e">20만 원</text>
+<line x1="487.2" y1="78" x2="487.2" y2="292" stroke="#e4e3df"/>
+<text x="487.2" y="309" font-size="11" text-anchor="middle" fill="#52514e">30만 원</text>
+<line x1="593.6" y1="78" x2="593.6" y2="292" stroke="#e4e3df"/>
+<text x="593.6" y="309" font-size="11" text-anchor="middle" fill="#52514e">40만 원</text>
+<line x1="700.0" y1="78" x2="700.0" y2="292" stroke="#e4e3df"/>
+<text x="700.0" y="309" font-size="11" text-anchor="middle" fill="#52514e">50만 원</text>
+<line x1="168" y1="78" x2="168" y2="292" stroke="#b9b8b2"/>
+<text x="154" y="101.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#0b0b0b">whisper-small</text>
+<path d="M168,86 H333.24 Q338.24,86 338.24,91 V101 Q338.24,106 333.24,106 H168 Z" fill="#8a8984"><title>외부 GPU: 16만 원</title></path>
+<text x="345.2" y="101" font-size="13" font-weight="700" fill="#0b0b0b">16만 원</text>
+<rect x="392.7" y="85.0" width="38.6" height="22" rx="11" fill="none" stroke="#52514e"/><text x="399.7" y="100.5" font-size="12" font-weight="700" fill="#52514e">7시간</text>
+<text x="154" y="141.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#0b0b0b">whisper-medium</text>
+<path d="M168,126 H386.44 Q391.44,126 391.44,131 V141 Q391.44,146 386.44,146 H168 Z" fill="#8a8984"><title>외부 GPU: 21만 원</title></path>
+<text x="398.4" y="141" font-size="13" font-weight="700" fill="#0b0b0b">21만 원</text>
+<rect x="445.9" y="125.0" width="46.8" height="22" rx="11" fill="none" stroke="#52514e"/><text x="452.9" y="140.5" font-size="12" font-weight="700" fill="#52514e">22시간</text>
+<text x="154" y="181.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#0b0b0b">large-v3-turbo LoRA</text>
+<path d="M168,166 H482.2 Q487.2,166 487.2,171 V181 Q487.2,186 482.2,186 H168 Z" fill="#2a78d6"><title>외부 GPU: 30만 원</title></path>
+<text x="494.2" y="181" font-size="13" font-weight="700" fill="#0b0b0b">30만 원</text>
+<rect x="541.7" y="165.0" width="46.8" height="22" rx="11" fill="none" stroke="#52514e"/><text x="548.7" y="180.5" font-size="12" font-weight="700" fill="#52514e">47시간</text>
+<text x="154" y="221.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#0b0b0b">large-v3 LoRA</text>
+<path d="M168,206 H514.12 Q519.12,206 519.12,211 V221 Q519.12,226 514.12,226 H168 Z" fill="#8a8984"><title>외부 GPU: 33만 원</title></path>
+<text x="526.1" y="221" font-size="13" font-weight="700" fill="#0b0b0b">33만 원</text>
+<rect x="573.6" y="205.0" width="46.8" height="22" rx="11" fill="none" stroke="#52514e"/><text x="580.6" y="220.5" font-size="12" font-weight="700" fill="#52514e">56시간</text>
+<text x="154" y="261.0" font-size="13.5" font-weight="600" text-anchor="end" fill="#0b0b0b">large-v3 전체 학습</text>
+<path d="M168,246 H609.88 Q614.88,246 614.88,251 V261 Q614.88,266 609.88,266 H168 Z" fill="#8a8984"><title>외부 GPU: 42만 원</title></path>
+<text x="621.9" y="261" font-size="13" font-weight="700" fill="#0b0b0b">42만 원</text>
+<rect x="669.4" y="245.0" width="46.8" height="22" rx="11" fill="none" stroke="#52514e"/><text x="676.4" y="260.5" font-size="12" font-weight="700" fill="#52514e">84시간</text>
+<text x="24" y="330" font-size="12" fill="#52514e">파랑 = 권장(large-v3-turbo LoRA). 배지 = GPU 사용 시간.</text>
+</svg>

@@ -1,29 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="246" viewBox="0 0 760 246" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="표준어 변환 CER — STT 오류 비용">
-<rect width="100%" height="100%" rx="8" fill="#1a1a19"/>
-<text x="20" y="30" font-size="16" font-weight="600" fill="#f0efec">표준어 변환 CER — STT 오류 비용</text>
-<text x="20" y="50" font-size="12" fill="#c3c2b7">LLM 정규화 결과 vs 정답 표준어 (gemma4-26b-a4b) · 낮을수록 좋음</text>
-<rect x="20" y="62" width="12" height="12" rx="3" fill="#9085e9"/><text x="38" y="72.5" font-size="12" fill="#c3c2b7">jaewon-stt + LLM 정규화</text>
-<rect x="204.0" y="62" width="12" height="12" rx="3" fill="#199e70"/><text x="222.0" y="72.5" font-size="12" fill="#c3c2b7">정답 전사 + LLM (oracle, 상한)</text>
-<line x1="156.0" y1="86" x2="156.0" y2="198" stroke="#2e2e2c" stroke-width="1"/>
-<text x="156.0" y="214" font-size="11" text-anchor="middle" fill="#c3c2b7">0%</text>
-<line x1="291.0" y1="86" x2="291.0" y2="198" stroke="#2e2e2c" stroke-width="1"/>
-<text x="291.0" y="214" font-size="11" text-anchor="middle" fill="#c3c2b7">25%</text>
-<line x1="426.0" y1="86" x2="426.0" y2="198" stroke="#2e2e2c" stroke-width="1"/>
-<text x="426.0" y="214" font-size="11" text-anchor="middle" fill="#c3c2b7">50%</text>
-<line x1="561.0" y1="86" x2="561.0" y2="198" stroke="#2e2e2c" stroke-width="1"/>
-<text x="561.0" y="214" font-size="11" text-anchor="middle" fill="#c3c2b7">75%</text>
-<line x1="696.0" y1="86" x2="696.0" y2="198" stroke="#2e2e2c" stroke-width="1"/>
-<text x="696.0" y="214" font-size="11" text-anchor="middle" fill="#c3c2b7">100%</text>
-<line x1="156" y1="86" x2="156" y2="198" stroke="#57564f" stroke-width="1"/>
-<text x="144" y="111.5" font-size="13" text-anchor="end" fill="#f0efec">합성 진단 (request)</text>
-<path d="M156,92 H333.98 Q337.98,92 337.98,96 V102 Q337.98,106 333.98,106 H156 Z" fill="#9085e9"><title>jaewon-stt + LLM 정규화: 33.7%</title></path>
-<text x="344.0" y="103" font-size="11.5" fill="#c3c2b7">33.7%</text>
-<path d="M156,108 H271.88 Q275.88,108 275.88,112 V118 Q275.88,122 271.88,122 H156 Z" fill="#199e70"><title>정답 전사 + LLM (oracle, 상한): 22.2%</title></path>
-<text x="281.9" y="119" font-size="11.5" fill="#c3c2b7">22.2%</text>
-<text x="144" y="159.5" font-size="13" text-anchor="end" fill="#f0efec">실제 제주어 (faithful)</text>
-<path d="M156,140 H435.5 Q439.5,140 439.5,144 V150 Q439.5,154 435.5,154 H156 Z" fill="#9085e9"><title>jaewon-stt + LLM 정규화: 52.5%</title></path>
-<text x="445.5" y="151" font-size="11.5" fill="#c3c2b7">52.5%</text>
-<path d="M156,156 H390.68 Q394.68,156 394.68,160 V166 Q394.68,170 390.68,170 H156 Z" fill="#199e70"><title>정답 전사 + LLM (oracle, 상한): 44.2%</title></path>
-<text x="400.7" y="167" font-size="11.5" fill="#c3c2b7">44.2%</text>
-<text x="20" y="232" font-size="11.5" fill="#c3c2b7">두 막대의 차이 = STT 오류가 더한 비용 (합성 +11.5%p, 제주 +8.4%p).</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="292" viewBox="0 0 820 292" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="표준어 CER — STT 오류 비용">
+<defs><linearGradient id="gstdcersttcost" x1="0" x2="1"><stop offset="0" stop-color="#3987e5"/><stop offset="1" stop-color="#9085e9"/></linearGradient></defs>
+<rect width="100%" height="100%" rx="12" fill="#1a1a19" stroke="#2e2e2c"/>
+<rect x="0" y="0" width="820" height="6" rx="3" fill="url(#gstdcersttcost)"/>
+<text x="24" y="40" font-size="19" font-weight="700" fill="#f0efec">표준어 CER — STT 오류 비용</text>
+<text x="24" y="62" font-size="12.5" fill="#c3c2b7">LLM 결과 vs 정답 표준어 (gemma4-26b-a4b) · 낮을수록 좋음 ↓</text>
+<rect x="24" y="76" width="14" height="14" rx="3" fill="#9085e9"/><text x="44" y="87.5" font-size="12.5" fill="#c3c2b7">jaewon-stt + LLM</text>
+<rect x="191.6" y="76" width="14" height="14" rx="3" fill="#199e70"/><text x="211.6" y="87.5" font-size="12.5" fill="#c3c2b7">정답 전사 + LLM (oracle)</text>
+<line x1="168.0" y1="100" x2="168.0" y2="240" stroke="#2e2e2c"/>
+<text x="168.0" y="257" font-size="11" text-anchor="middle" fill="#c3c2b7">0%</text>
+<line x1="301.0" y1="100" x2="301.0" y2="240" stroke="#2e2e2c"/>
+<text x="301.0" y="257" font-size="11" text-anchor="middle" fill="#c3c2b7">25%</text>
+<line x1="434.0" y1="100" x2="434.0" y2="240" stroke="#2e2e2c"/>
+<text x="434.0" y="257" font-size="11" text-anchor="middle" fill="#c3c2b7">50%</text>
+<line x1="567.0" y1="100" x2="567.0" y2="240" stroke="#2e2e2c"/>
+<text x="567.0" y="257" font-size="11" text-anchor="middle" fill="#c3c2b7">75%</text>
+<line x1="700.0" y1="100" x2="700.0" y2="240" stroke="#2e2e2c"/>
+<text x="700.0" y="257" font-size="11" text-anchor="middle" fill="#c3c2b7">100%</text>
+<line x1="168" y1="100" x2="168" y2="240" stroke="#57564f"/>
+<text x="154" y="134.5" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">합성 진단</text>
+<path d="M168,108 H342.284 Q347.284,108 347.284,113 V123 Q347.284,128 342.284,128 H168 Z" fill="#9085e9"><title>jaewon-stt + LLM: 33.7%</title></path>
+<text x="354.3" y="123" font-size="13" font-weight="700" fill="#f0efec">33.7%</text>
+<path d="M168,131 H281.104 Q286.104,131 286.104,136 V146 Q286.104,151 281.104,151 H168 Z" fill="#199e70"><title>정답 전사 + LLM (oracle): 22.2%</title></path>
+<text x="293.1" y="146" font-size="13" font-weight="700" fill="#f0efec">22.2%</text>
+<rect x="401.8" y="118.5" width="71.4" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="408.8" y="134.0" font-size="12" font-weight="700" fill="#c3c2b7">+11.5%p</text>
+<text x="154" y="197.5" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">실제 제주어</text>
+<path d="M168,171 H442.3 Q447.3,171 447.3,176 V186 Q447.3,191 442.3,191 H168 Z" fill="#9085e9"><title>jaewon-stt + LLM: 52.5%</title></path>
+<text x="454.3" y="186" font-size="13" font-weight="700" fill="#f0efec">52.5%</text>
+<path d="M168,194 H398.144 Q403.144,194 403.144,199 V209 Q403.144,214 398.144,214 H168 Z" fill="#199e70"><title>정답 전사 + LLM (oracle): 44.2%</title></path>
+<text x="410.1" y="209" font-size="13" font-weight="700" fill="#f0efec">44.2%</text>
+<rect x="501.8" y="181.5" width="63.2" height="22" rx="11" fill="none" stroke="#c3c2b7"/><text x="508.8" y="197.0" font-size="12" font-weight="700" fill="#c3c2b7">+8.4%p</text>
+<text x="24" y="278" font-size="12" fill="#c3c2b7">배지 = 두 막대의 차이 = STT 오류가 더한 비용.</text>
 </svg>

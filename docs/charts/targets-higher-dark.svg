@@ -1,33 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="276" viewBox="0 0 760 276" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="현재 vs 파인튜닝 목표 — 높을수록 좋은 지표">
-<rect width="100%" height="100%" rx="8" fill="#1a1a19"/>
-<text x="20" y="30" font-size="16" font-weight="600" fill="#f0efec">현재 vs 파인튜닝 목표 — 높을수록 좋은 지표</text>
-<text x="20" y="50" font-size="12" fill="#c3c2b7">목표치는 계획이며 측정값이 아님 · 높을수록 좋음</text>
-<rect x="20" y="62" width="12" height="12" rx="3" fill="#3987e5"/><text x="38" y="72.5" font-size="12" fill="#c3c2b7">jaewon-stt (STT)</text>
-<rect x="175.2" y="62" width="12" height="12" rx="3" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="3 2"/><text x="193.2" y="72.5" font-size="12" fill="#c3c2b7">파인튜닝 목표</text>
-<line x1="156.0" y1="86" x2="156.0" y2="246" stroke="#2e2e2c" stroke-width="1"/>
-<text x="156.0" y="262" font-size="11" text-anchor="middle" fill="#c3c2b7">0%</text>
-<line x1="291.0" y1="86" x2="291.0" y2="246" stroke="#2e2e2c" stroke-width="1"/>
-<text x="291.0" y="262" font-size="11" text-anchor="middle" fill="#c3c2b7">25%</text>
-<line x1="426.0" y1="86" x2="426.0" y2="246" stroke="#2e2e2c" stroke-width="1"/>
-<text x="426.0" y="262" font-size="11" text-anchor="middle" fill="#c3c2b7">50%</text>
-<line x1="561.0" y1="86" x2="561.0" y2="246" stroke="#2e2e2c" stroke-width="1"/>
-<text x="561.0" y="262" font-size="11" text-anchor="middle" fill="#c3c2b7">75%</text>
-<line x1="696.0" y1="86" x2="696.0" y2="246" stroke="#2e2e2c" stroke-width="1"/>
-<text x="696.0" y="262" font-size="11" text-anchor="middle" fill="#c3c2b7">100%</text>
-<line x1="156" y1="86" x2="156" y2="246" stroke="#57564f" stroke-width="1"/>
-<text x="144" y="111.5" font-size="13" text-anchor="end" fill="#f0efec">STT 용어 재현율</text>
-<path d="M156,92 H336.68 Q340.68,92 340.68,96 V102 Q340.68,106 336.68,106 H156 Z" fill="#3987e5"><title>jaewon-stt (STT): 34.2%</title></path>
-<text x="346.7" y="103" font-size="11.5" fill="#c3c2b7">34.2%</text>
-<path d="M156,109 H638.0 Q642.0,109 642.0,113 V117 Q642.0,121 638.0,121 H156 Z" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="4 3"><title>파인튜닝 목표: 90%</title></path>
-<text x="648.0" y="119" font-size="11.5" fill="#c3c2b7">90%</text>
-<text x="144" y="159.5" font-size="13" text-anchor="end" fill="#f0efec">정규화 후 용어 복원</text>
-<path d="M156,140 H520.8199999999999 Q524.8199999999999,140 524.8199999999999,144 V150 Q524.8199999999999,154 520.8199999999999,154 H156 Z" fill="#3987e5"><title>jaewon-stt (STT): 68.3%</title></path>
-<text x="530.8" y="151" font-size="11.5" fill="#c3c2b7">68.3%</text>
-<path d="M156,157 H665.0 Q669.0,157 669.0,161 V165 Q669.0,169 665.0,169 H156 Z" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="4 3"><title>파인튜닝 목표: 95%</title></path>
-<text x="675.0" y="167" font-size="11.5" fill="#c3c2b7">95%</text>
-<text x="144" y="207.5" font-size="13" text-anchor="end" fill="#f0efec">의도 JSON 성공률</text>
-<path d="M156,188 H692.0 Q696.0,188 696.0,192 V198 Q696.0,202 692.0,202 H156 Z" fill="#3987e5"><title>jaewon-stt (STT): 100%</title></path>
-<text x="702.0" y="199" font-size="11.5" fill="#c3c2b7">100%</text>
-<path d="M156,205 H692.0 Q696.0,205 696.0,209 V213 Q696.0,217 692.0,217 H156 Z" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="4 3"><title>파인튜닝 목표: 100%</title></path>
-<text x="702.0" y="215" font-size="11.5" fill="#c3c2b7">100%</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="333" viewBox="0 0 820 333" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="현재 vs 파인튜닝 목표 — 높을수록 좋은 지표">
+<defs><linearGradient id="gtargetshigher" x1="0" x2="1"><stop offset="0" stop-color="#3987e5"/><stop offset="1" stop-color="#9085e9"/></linearGradient></defs>
+<rect width="100%" height="100%" rx="12" fill="#1a1a19" stroke="#2e2e2c"/>
+<rect x="0" y="0" width="820" height="6" rx="3" fill="url(#gtargetshigher)"/>
+<text x="24" y="40" font-size="19" font-weight="700" fill="#f0efec">현재 vs 파인튜닝 목표 — 높을수록 좋은 지표</text>
+<text x="24" y="62" font-size="12.5" fill="#c3c2b7">목표치는 계획이며 측정값이 아님 · 높을수록 좋음 ↑</text>
+<rect x="24" y="76" width="14" height="14" rx="3" fill="#3987e5"/><text x="44" y="87.5" font-size="12.5" fill="#c3c2b7">jaewon-stt (prompt 튜닝)</text>
+<rect x="237.2" y="76" width="14" height="14" rx="3" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="3 2"/><text x="257.2" y="87.5" font-size="12.5" fill="#c3c2b7">파인튜닝 목표</text>
+<line x1="168.0" y1="100" x2="168.0" y2="303" stroke="#2e2e2c"/>
+<text x="168.0" y="320" font-size="11" text-anchor="middle" fill="#c3c2b7">0%</text>
+<line x1="301.0" y1="100" x2="301.0" y2="303" stroke="#2e2e2c"/>
+<text x="301.0" y="320" font-size="11" text-anchor="middle" fill="#c3c2b7">25%</text>
+<line x1="434.0" y1="100" x2="434.0" y2="303" stroke="#2e2e2c"/>
+<text x="434.0" y="320" font-size="11" text-anchor="middle" fill="#c3c2b7">50%</text>
+<line x1="567.0" y1="100" x2="567.0" y2="303" stroke="#2e2e2c"/>
+<text x="567.0" y="320" font-size="11" text-anchor="middle" fill="#c3c2b7">75%</text>
+<line x1="700.0" y1="100" x2="700.0" y2="303" stroke="#2e2e2c"/>
+<text x="700.0" y="320" font-size="11" text-anchor="middle" fill="#c3c2b7">100%</text>
+<line x1="168" y1="100" x2="168" y2="303" stroke="#57564f"/>
+<text x="154" y="134.5" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">STT 용어 재현율</text>
+<path d="M168,108 H344.944 Q349.944,108 349.944,113 V123 Q349.944,128 344.944,128 H168 Z" fill="#3987e5"><title>jaewon-stt (prompt 튜닝): 34.2%</title></path>
+<text x="356.9" y="123" font-size="13" font-weight="700" fill="#f0efec">34.2%</text>
+<path d="M168,132 H641.8 Q646.8,132 646.8,137 V145 Q646.8,150 641.8,150 H168 Z" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="5 3"><title>파인튜닝 목표: 90%</title></path>
+<text x="653.8" y="146" font-size="13" font-weight="700" fill="#f0efec">90%</text>
+<text x="154" y="197.5" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">LLM 후 용어 복원</text>
+<path d="M168,171 H526.356 Q531.356,171 531.356,176 V186 Q531.356,191 526.356,191 H168 Z" fill="#3987e5"><title>jaewon-stt (prompt 튜닝): 68.3%</title></path>
+<text x="538.4" y="186" font-size="13" font-weight="700" fill="#f0efec">68.3%</text>
+<path d="M168,195 H668.4 Q673.4,195 673.4,200 V208 Q673.4,213 668.4,213 H168 Z" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="5 3"><title>파인튜닝 목표: 95%</title></path>
+<text x="680.4" y="209" font-size="13" font-weight="700" fill="#f0efec">95%</text>
+<text x="154" y="260.5" font-size="13.5" font-weight="600" text-anchor="end" fill="#f0efec">의도 JSON</text>
+<path d="M168,234 H695.0 Q700.0,234 700.0,239 V249 Q700.0,254 695.0,254 H168 Z" fill="#3987e5"><title>jaewon-stt (prompt 튜닝): 100%</title></path>
+<text x="707.0" y="249" font-size="13" font-weight="700" fill="#f0efec">100%</text>
+<path d="M168,258 H695.0 Q700.0,258 700.0,263 V271 Q700.0,276 695.0,276 H168 Z" fill="none" stroke="#9a9991" stroke-width="2" stroke-dasharray="5 3"><title>파인튜닝 목표: 100%</title></path>
+<text x="707.0" y="272" font-size="13" font-weight="700" fill="#f0efec">100%</text>
 </svg>
