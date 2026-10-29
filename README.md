@@ -53,7 +53,7 @@
 5. [2차 보류 — GPU와 CPU 검토](#5-2차-보류--gpu와-cpu-검토)
 6. [서비스 방법](#6-서비스-방법)
 7. [사용 방법](#7-사용-방법)
-8. [데이터·라이선스·한계](#8-데이터라이선스한계)
+8. [마무리](#마무리)
 
 ---
 
@@ -392,27 +392,55 @@ korean-dialect-stt/
 
 ---
 
-## 8. 데이터·라이선스·한계
+## 마무리
 
-| 데이터 | 용도 | 라이선스 | 저장소 포함 |
-| --- | --- | --- | --- |
-| 사투리 문장 틀 10개 × 기술 용어 12개 | 합성 진단·증강 | 본 프로젝트 | 포함 |
-| 합성 진단 manifest·보고서 | 결과 | 본 프로젝트 (음성 제외) | 포함 |
-| [Kakao Brain JSS](https://github.com/kakaobrain/jejueo) 제주어 음성 | 실음성 평가 | **CC BY-NC-SA 4.0** | 미포함 (`prepare_jss.py`로 재구성) |
-| [Kakao Brain JIT](https://github.com/kakaobrain/jejueo) 제주어-표준어 병렬 | 표준어 정답 | **CC BY-NC-SA 4.0** | 미포함 |
-| AI Hub 지역별 방언 발화 | 학습·평가 (재개 시) | AI Hub 약관 | 미확보 |
+<table>
+<tr>
+<td width="33%" valign="top">
 
-- JSS/JIT는 비상업 평가 용도로만 쓴다. 출처: Park, Choe, Ham, *Jejueo Datasets for Machine Translation and Speech Synthesis*, LREC 2020.
-- TTS 합성 음성은 억양을 재현하지 못하므로 용어 노출용으로만 쓰고(학습 데이터의 30% 이하) 평가셋에 넣지 않는다.
+### ✅ 해낸 것
 
-**한계**: 모든 수치는 파인튜닝 전 기준선이다. 합성 진단셋은 억양이 없고, 실음성 기준선은 제주어 단일 화자 150문장뿐이다. 용어 재현율은 부분 문자열 일치(`ArgoCD` ≠ `Argo CD`)이고 표준어 CER은 의역에 민감하다. 아래아 변환은 근사치다. 테스트 페이지는 공개 주소이며 STT 무료 한도를 공유한다.
+- 사투리 + 영어 기술 용어 **2단계 파이프라인**
+- prompt만으로 CER **47.8% → 25.3%**
+- 용어 복원 **1.7% → 68.3%**
+- 원어민 제주어 **실음성 기준선**
+- 한 번의 녹음으로 비교하는 **테스트 페이지**
 
----
+</td>
+<td width="33%" valign="top">
+
+### 💡 배운 것
+
+- prompt는 **용어 사전**일 뿐, 사투리는 학습이 필요하다
+- LLM은 잘못 받아쓴 용어를 **절반 이상 되살린다**
+- 같은 CER이라도 **틀린 글자에 따라 의미가 갈린다**
+- 병목은 STT의 **기술 용어 전사**다
+
+</td>
+<td width="33%" valign="top">
+
+### 🚀 다음 단계
+
+- AI Hub 방언 데이터 확보
+- large-v3-turbo **LoRA 지도 학습**
+- **Speech Chain** 준지도 라운드
+- 같은 평가셋으로 **실측 비교** 후 `jaewon-stt` 교체
+
+</td>
+</tr>
+</table>
 
 <div align="center">
 
-**v0.1.1** · 2026-10-29 · v0.1.0 1차 기준선·평가 체계 → v0.1.1 비교 테스트 페이지·LLM 의미 판정·2차 보류 결정
+<br>
 
-발표 자료: [Gamma](https://gamma.app/docs/ph9nxtr6waspgpm)
+**들린 그대로 받아쓰고, 뜻은 정확하게.**
+
+[🎙️ 테스트 페이지에서 직접 말해 보기](https://stt-test.test-ai.cloud) · [📊 발표 자료 보기](https://gamma.app/docs/ph9nxtr6waspgpm)
+
+<br>
+
+<sub>v0.1.1 · 2026-10-29 · 1차 기준선·비교 테스트 페이지 완료, 파인튜닝 보류<br>
+제주어 평가 음성·병렬 말뭉치: <a href="https://github.com/kakaobrain/jejueo">Kakao Brain JSS·JIT</a> (CC BY-NC-SA 4.0, 비상업 평가 용도로만 사용, 저장소 미포함)</sub>
 
 </div>
