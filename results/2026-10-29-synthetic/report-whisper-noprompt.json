@@ -1,0 +1,1121 @@
+{
+  "set_type": "synthetic-diagnostic",
+  "stt_model": "groq-whisper-large-v3",
+  "language": "ko",
+  "llm_model": null,
+  "prompt": null,
+  "summary": {
+    "chungcheong": {
+      "utterances": 24,
+      "mean_cer": 0.5004,
+      "term_recall": 0.0
+    },
+    "gangwon": {
+      "utterances": 24,
+      "mean_cer": 0.4455,
+      "term_recall": 0.0
+    },
+    "gyeongsang": {
+      "utterances": 24,
+      "mean_cer": 0.4265,
+      "term_recall": 0.0417
+    },
+    "jeju": {
+      "utterances": 24,
+      "mean_cer": 0.5742,
+      "term_recall": 0.0417
+    },
+    "jeolla": {
+      "utterances": 24,
+      "mean_cer": 0.4443,
+      "term_recall": 0.0
+    },
+    "ALL": {
+      "utterances": 120,
+      "mean_cer": 0.4782,
+      "term_recall": 0.0167
+    }
+  },
+  "results": [
+    {
+      "audio": "clips/syn-00000.mp3",
+      "region": "jeju",
+      "reference": "PostgreSQL가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "포스트그래스 Q&A가 무사 잡고 주검습과 로그 좀 봐줍서.",
+      "cer": 0.56,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00001.mp3",
+      "region": "chungcheong",
+      "reference": "PostgreSQL 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "포스트그레스 QL 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.4762,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00002.mp3",
+      "region": "gangwon",
+      "reference": "OOMKilled 고거 아직 안 됐드래요?",
+      "hypothesis": "오엄킬드 고거 아직 안됐더래요?",
+      "cer": 0.5556,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00003.mp3",
+      "region": "gyeongsang",
+      "reference": "OOMKilled 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "오엄킬드 우제된 놈? 아직도 안 뜨나?",
+      "cer": 0.6316,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00004.mp3",
+      "region": "jeju",
+      "reference": "Helm 차트 다시 돌려봅서게.",
+      "hypothesis": "헬차트 다시 돌려법석에",
+      "cer": 0.5385,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00005.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Argo CD가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, 아구시디가 와이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.3,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00006.mp3",
+      "region": "jeju",
+      "reference": "LiteLLM가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "리템과 무사 작구 주검수과 로그 좀 봐줍서.",
+      "cer": 0.5455,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00007.mp3",
+      "region": "jeju",
+      "reference": "Ingress 다시 돌려봅서게.",
+      "hypothesis": "인그레스 다시 돌려 법석에",
+      "cer": 0.7143,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00008.mp3",
+      "region": "gyeongsang",
+      "reference": "야, LiteLLM가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야 니템가 와이래 자꾸 줍노? 로그 좀 봐도",
+      "cer": 0.381,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00009.mp3",
+      "region": "jeolla",
+      "reference": "거시기, kubectl 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, 쿠벡틀 설정 좀 바꿔야 쓰겄는디.",
+      "cer": 0.4,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00010.mp3",
+      "region": "chungcheong",
+      "reference": "Kubernetes Pod가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "퀴버넷 팟카 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.6296,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00011.mp3",
+      "region": "gangwon",
+      "reference": "OOMKilled가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "오원킬드가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.4348,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00012.mp3",
+      "region": "jeolla",
+      "reference": "Argo CD이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "아구시디이 왜 자꾸 꺼져분다냐? 쪼까 봐주랑께.",
+      "cer": 0.381,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00013.mp3",
+      "region": "gangwon",
+      "reference": "PostgreSQL 고거 아직 안 됐드래요?",
+      "hypothesis": "포스트그레스 QL 고거 아직 안 됐더래요?",
+      "cer": 0.4737,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00014.mp3",
+      "region": "gangwon",
+      "reference": "LiteLLM가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "리템가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.381,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00015.mp3",
+      "region": "gyeongsang",
+      "reference": "CrashLoopBackOff 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "크레실로 빼고프 우제댕로? 아직도 안 뜨나?",
+      "cer": 0.7308,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00016.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Helm 차트가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야 헬차트가 와이래 자꾸 죽노? 로그 좀 봐도",
+      "cer": 0.2,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00017.mp3",
+      "region": "jeju",
+      "reference": "Redis가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "레디스가 무사 잡고 죽음숙과 로그 좀 봐줍서.",
+      "cer": 0.45,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00018.mp3",
+      "region": "gangwon",
+      "reference": "Argo CD가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "아고시디가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.35,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00019.mp3",
+      "region": "gyeongsang",
+      "reference": "Redis 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "레디스 우제된 놈? 아직도 안 뜨나?",
+      "cer": 0.5333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00020.mp3",
+      "region": "gangwon",
+      "reference": "LiteLLM 고거 아직 안 됐드래요?",
+      "hypothesis": "위템 고거 아직 안 됐더래요?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00021.mp3",
+      "region": "gangwon",
+      "reference": "Helm 차트 고거 아직 안 됐드래요?",
+      "hypothesis": "헬차트 고거 아직 안 됐더래요.",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00022.mp3",
+      "region": "gyeongsang",
+      "reference": "Ingress 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "ingress 우제랬노? 아직도 안 뜨나?",
+      "cer": 0.1176,
+      "terms": 1,
+      "terms_found": 1
+    },
+    {
+      "audio": "clips/syn-00023.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Deployment 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기 디플로이먼트 설정 좀 바꿔야 쓰겠는디.",
+      "cer": 0.5217,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00024.mp3",
+      "region": "jeolla",
+      "reference": "Dify이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "DPE 왜 자꾸 꺼져본다냐? 쪼까봐주랑께.",
+      "cer": 0.3158,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00025.mp3",
+      "region": "jeolla",
+      "reference": "LiteLLM이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "밑에 미유에 자꾸 꺼져 본다냐? 쪼까 봐주란께.",
+      "cer": 0.5455,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00026.mp3",
+      "region": "jeolla",
+      "reference": "Redis이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "레디스 이 왜 자꾸 꺼져본다냐? 조까 봐주란께.",
+      "cer": 0.45,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00027.mp3",
+      "region": "jeju",
+      "reference": "PostgreSQL 다시 돌려봅서게.",
+      "hypothesis": "포스트그레스 QL 다시 돌려봅소개",
+      "cer": 0.5882,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00028.mp3",
+      "region": "jeolla",
+      "reference": "Kubernetes Pod이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "피버넷팟이 왜 자꾸 꺼져분다냐? 쪼까봐주랑께",
+      "cer": 0.5357,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00029.mp3",
+      "region": "chungcheong",
+      "reference": "Deployment가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "디플로이먼트가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.5417,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00030.mp3",
+      "region": "gyeongsang",
+      "reference": "PostgreSQL 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "포스트그래스 QL 우제댄노 아직도 안 뜨나?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00031.mp3",
+      "region": "gyeongsang",
+      "reference": "야, OOMKilled가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, 오원킬드가 와이래 자꾸 죽노? 로그 좀 봐둬.",
+      "cer": 0.4348,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00032.mp3",
+      "region": "gangwon",
+      "reference": "Dify 고거 아직 안 됐드래요?",
+      "hypothesis": "DP 고거 아직 안 됐더래요?",
+      "cer": 0.3077,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00033.mp3",
+      "region": "gangwon",
+      "reference": "Redis가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "레디스가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.3158,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00034.mp3",
+      "region": "chungcheong",
+      "reference": "OOMKilled가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "오원필드가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.5217,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00035.mp3",
+      "region": "jeju",
+      "reference": "Dify가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "DP가 무사 잡고 죽음숙과 로그 좀 봐줍서.",
+      "cer": 0.3684,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00036.mp3",
+      "region": "jeju",
+      "reference": "OOMKilled가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "오왕킬드가 무사 잡고 죽음숙과 로그 좀 봐줍서.",
+      "cer": 0.5417,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00037.mp3",
+      "region": "chungcheong",
+      "reference": "CrashLoopBackOff 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "크래실로 백오프 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.6667,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00038.mp3",
+      "region": "chungcheong",
+      "reference": "PostgreSQL가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "포스트그레스 QL가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.4583,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00039.mp3",
+      "region": "chungcheong",
+      "reference": "Deployment 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "디플로이먼트 다시 띄워야 하는 거 아니예요?",
+      "cer": 0.619,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00040.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Deployment가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야 디플로이먼트 가 와이래 자꾸 죽노? 로그 좀 봐도",
+      "cer": 0.4167,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00041.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, 퀴버넷 파카 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.5185,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00042.mp3",
+      "region": "gangwon",
+      "reference": "Deployment 고거 아직 안 됐드래요?",
+      "hypothesis": "디플로이먼트 고가 아직 안 됐더래요.",
+      "cer": 0.6316,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00043.mp3",
+      "region": "jeju",
+      "reference": "Deployment가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "디플로이먼트가 무사 잡고 주검수과 로그 좀 봐줍서.",
+      "cer": 0.56,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00044.mp3",
+      "region": "jeju",
+      "reference": "kubectl가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "코백틸 가무사 작고 죽음숲과 로그종 봐줍서.",
+      "cer": 0.5455,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00045.mp3",
+      "region": "chungcheong",
+      "reference": "Ingress 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "잉그레스 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00046.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Redis 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기 레디스 설정 좀 바꿔야 쓰겄는디",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00047.mp3",
+      "region": "chungcheong",
+      "reference": "Redis가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "레디스가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.4211,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00048.mp3",
+      "region": "jeju",
+      "reference": "Helm 차트가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "헬차트가 무사 잡고 죽음숲과 로그 좀 봐줍서.",
+      "cer": 0.381,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00049.mp3",
+      "region": "chungcheong",
+      "reference": "Dify 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "DP 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00050.mp3",
+      "region": "gyeongsang",
+      "reference": "Dify 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "DP 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.2143,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00051.mp3",
+      "region": "jeju",
+      "reference": "Redis 다시 돌려봅서게.",
+      "hypothesis": "레디스 다시 돌려 법석에",
+      "cer": 0.6667,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00052.mp3",
+      "region": "jeju",
+      "reference": "CrashLoopBackOff가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "크레실로 빼고프 가무사 자꾸 주검숙과 로그 좀 봐줍서.",
+      "cer": 0.6129,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00053.mp3",
+      "region": "gangwon",
+      "reference": "Deployment가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "디플로이먼트가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.4583,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00054.mp3",
+      "region": "gangwon",
+      "reference": "CrashLoopBackOff가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "크레실로 백오프가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.5667,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00055.mp3",
+      "region": "jeolla",
+      "reference": "Helm 차트이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "헬차트이 왜 자꾸 꺼져 분다냐? 쪼까 봐주란께.",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00056.mp3",
+      "region": "jeolla",
+      "reference": "OOMKilled이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "오왕필드이 왜 자꾸 꺼져본다냐? 쪼까 봐주랑께.",
+      "cer": 0.4583,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00057.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Helm 차트 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, 헬차트 설정 좀 바꿔야 쓰겄는디.",
+      "cer": 0.2632,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00058.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Ingress 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, 인그레스 설정 좀 바꿔야 쓰겄는디.",
+      "cer": 0.4,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00059.mp3",
+      "region": "jeolla",
+      "reference": "CrashLoopBackOff이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "크레슐로 빼고프이 왜 자꾸 꺼져본다냐? 쪼까 봐주란께",
+      "cer": 0.6129,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00060.mp3",
+      "region": "jeju",
+      "reference": "Ingress가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "잉그레스가 무사 잡고 죽음 숲과 로그 좀 봐줍서.",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00061.mp3",
+      "region": "gangwon",
+      "reference": "Kubernetes Pod 고거 아직 안 됐드래요?",
+      "hypothesis": "퀴버넷 팟 고거 아직 안 됐더래요.",
+      "cer": 0.6364,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00062.mp3",
+      "region": "gangwon",
+      "reference": "Dify가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "DP가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.2222,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00063.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Dify가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, DP가 와 이래 자꾸 죽노? 로그 좀 봐둬.",
+      "cer": 0.2222,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00064.mp3",
+      "region": "jeolla",
+      "reference": "거시기, LiteLLM 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기 리템 설정 좀 바꿔야 씁었는디",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00065.mp3",
+      "region": "gyeongsang",
+      "reference": "LiteLLM 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "리템 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.4118,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00066.mp3",
+      "region": "jeolla",
+      "reference": "kubectl이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "쿠벡틀 이 왜 자꾸 꺼져본다냐? 조까 봐주란께.",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00067.mp3",
+      "region": "gyeongsang",
+      "reference": "Helm 차트 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "헬차트 우제됐노? 아직도 안 뜨나?",
+      "cer": 0.3125,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00068.mp3",
+      "region": "jeolla",
+      "reference": "거시기, PostgreSQL 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기 포스트그레스 ql 설정 좀 바꿔야 쓰겄는디",
+      "cer": 0.3913,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00069.mp3",
+      "region": "gyeongsang",
+      "reference": "Kubernetes Pod 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "퀴버넷 팟 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.5652,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00070.mp3",
+      "region": "jeju",
+      "reference": "Deployment 다시 돌려봅서게.",
+      "hypothesis": "Deployment 다시 돌려복석에",
+      "cer": 0.1765,
+      "terms": 1,
+      "terms_found": 1
+    },
+    {
+      "audio": "clips/syn-00071.mp3",
+      "region": "jeju",
+      "reference": "Dify 다시 돌려봅서게.",
+      "hypothesis": "dp 다시 돌려 법석에",
+      "cer": 0.5455,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00072.mp3",
+      "region": "gangwon",
+      "reference": "kubectl가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "쿠벡틀 가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00073.mp3",
+      "region": "jeolla",
+      "reference": "거시기, OOMKilled 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, 오엄킬드 설정 좀 바꿔야 쓰겄는데.",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00074.mp3",
+      "region": "gyeongsang",
+      "reference": "Argo CD 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "아고시디 우쯔댄노? 아직도 안뜨나?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00075.mp3",
+      "region": "chungcheong",
+      "reference": "Argo CD 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "아고시디 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.4706,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00076.mp3",
+      "region": "chungcheong",
+      "reference": "Kubernetes Pod 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "피버넷 팟 다시 띄워야 하는 거 아니어요?",
+      "cer": 0.6667,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00077.mp3",
+      "region": "gangwon",
+      "reference": "Ingress 고거 아직 안 됐드래요?",
+      "hypothesis": "잉그레스 고거 아직 안 됐더래요?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00078.mp3",
+      "region": "gangwon",
+      "reference": "Argo CD 고거 아직 안 됐드래요?",
+      "hypothesis": "아고시디 고거 아직 안됐더래요?",
+      "cer": 0.4667,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00079.mp3",
+      "region": "jeju",
+      "reference": "OOMKilled 다시 돌려봅서게.",
+      "hypothesis": "웜킬드 다시 돌려 법석에",
+      "cer": 0.75,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00080.mp3",
+      "region": "jeolla",
+      "reference": "PostgreSQL이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "포스트그레스 QLE 왜 자꾸 꺼져본다냐? 쪼까 봐주랑께.",
+      "cer": 0.44,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00081.mp3",
+      "region": "jeolla",
+      "reference": "거시기, CrashLoopBackOff 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, 크래쉬로 백오프 설정 좀 바꿔야 쓰겄는디.",
+      "cer": 0.5862,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00082.mp3",
+      "region": "chungcheong",
+      "reference": "Argo CD가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "아고시디가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.45,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00083.mp3",
+      "region": "jeju",
+      "reference": "Kubernetes Pod가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "키버넷 팟과 무사 잡구 주검수과 로그 좀 봐줍서",
+      "cer": 0.6429,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00084.mp3",
+      "region": "gangwon",
+      "reference": "Redis 고거 아직 안 됐드래요?",
+      "hypothesis": "레디스 고거 아직 안됐더래요?",
+      "cer": 0.4286,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00085.mp3",
+      "region": "chungcheong",
+      "reference": "LiteLLM 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "리템 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00086.mp3",
+      "region": "gangwon",
+      "reference": "Kubernetes Pod가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "퀴버넷 팟카 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.5556,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00087.mp3",
+      "region": "gangwon",
+      "reference": "CrashLoopBackOff 고거 아직 안 됐드래요?",
+      "hypothesis": "크레슐로페고프 고가 아직 안 됐더래요?",
+      "cer": 0.72,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00088.mp3",
+      "region": "chungcheong",
+      "reference": "Ingress가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "인그레스가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.4762,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00089.mp3",
+      "region": "chungcheong",
+      "reference": "LiteLLM가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "리템가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.4762,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00090.mp3",
+      "region": "jeju",
+      "reference": "Argo CD가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "아고시디가 무사 잡고 죽음숙과 로그 좀 봐줍서.",
+      "cer": 0.4762,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00091.mp3",
+      "region": "gyeongsang",
+      "reference": "kubectl 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "코백틀 우제된 놈? 아직도 안 뜨나?",
+      "cer": 0.5882,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00092.mp3",
+      "region": "chungcheong",
+      "reference": "kubectl가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "쿠벡틸가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.4762,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00093.mp3",
+      "region": "jeolla",
+      "reference": "Deployment이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "디플로이먼트 이후에 자꾸 꺼져본다냐? 쪼까 봐주란께.",
+      "cer": 0.6,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00094.mp3",
+      "region": "gangwon",
+      "reference": "kubectl 고거 아직 안 됐드래요?",
+      "hypothesis": "쿠벡틀 고가 아직 안됐더래요.",
+      "cer": 0.5625,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00095.mp3",
+      "region": "jeju",
+      "reference": "LiteLLM 다시 돌려봅서게.",
+      "hypothesis": "리템 다시 돌려 법석에",
+      "cer": 0.7143,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00096.mp3",
+      "region": "chungcheong",
+      "reference": "kubectl 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "쿠벡틀 다시 띄워야 하는 거 아니어요?",
+      "cer": 0.5556,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00097.mp3",
+      "region": "jeju",
+      "reference": "Argo CD 다시 돌려봅서게.",
+      "hypothesis": "마구 시디 다시 돌려 법석에",
+      "cer": 0.6923,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00098.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Argo CD 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, 아구 CD 설정 좀 바꿔야 쓰겄는디.",
+      "cer": 0.2632,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00099.mp3",
+      "region": "chungcheong",
+      "reference": "OOMKilled 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "오원킬드 다시 띄워야 하는 거 아니예요?",
+      "cer": 0.6,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00100.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Redis가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야 레디스가 와이래 자꾸 죽노? 로그 좀 봐도",
+      "cer": 0.2632,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00101.mp3",
+      "region": "jeju",
+      "reference": "CrashLoopBackOff 다시 돌려봅서게.",
+      "hypothesis": "크래쉴 600오프 다시 돌려봅서게",
+      "cer": 0.6957,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00102.mp3",
+      "region": "jeolla",
+      "reference": "Ingress이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "잉그레스 이 왜 자꾸 꺼져본다냐? 조까 봐주란께.",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00103.mp3",
+      "region": "gangwon",
+      "reference": "PostgreSQL가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "포스트그레스 QL가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.375,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00104.mp3",
+      "region": "chungcheong",
+      "reference": "Dify가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "DP가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00105.mp3",
+      "region": "gyeongsang",
+      "reference": "Deployment 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "디플로이먼트 우체 된 녹 아직도 안 뜨나?",
+      "cer": 0.65,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00106.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Ingress가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, 잉그레스가 와이래 자꾸 죽노? 로그 좀 봐둬.",
+      "cer": 0.381,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00107.mp3",
+      "region": "gyeongsang",
+      "reference": "야, CrashLoopBackOff가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, 크래쉬로 백오프가 와 이래 자꾸 죽노? 로그 좀 봐둬.",
+      "cer": 0.5667,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00108.mp3",
+      "region": "chungcheong",
+      "reference": "Helm 차트가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "헬차트가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.35,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00109.mp3",
+      "region": "chungcheong",
+      "reference": "CrashLoopBackOff가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "크레실로 백오프가 왜 자꾸 죽는데요? 로그 좀 봐줘요.",
+      "cer": 0.6333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00110.mp3",
+      "region": "jeju",
+      "reference": "kubectl 다시 돌려봅서게.",
+      "hypothesis": "코백틀 다시 돌려 곱석에",
+      "cer": 0.7143,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00111.mp3",
+      "region": "chungcheong",
+      "reference": "Helm 차트 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "헬차트 다시 띄워야 하는 거 아녜요?",
+      "cer": 0.3529,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00112.mp3",
+      "region": "gyeongsang",
+      "reference": "야, PostgreSQL가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야 포스트그래스 q&a 가 와 이래 자꾸 줍노 로그 좀 봐도",
+      "cer": 0.4167,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00113.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Kubernetes Pod 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기 퀴버넷 팟 설정 좀 바꿔야 쓰겄는디.",
+      "cer": 0.5385,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00114.mp3",
+      "region": "gangwon",
+      "reference": "Helm 차트가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "헬차트가 왜 자꾸 죽나? 로그 좀 봐주더래요.",
+      "cer": 0.25,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00115.mp3",
+      "region": "jeju",
+      "reference": "Kubernetes Pod 다시 돌려봅서게.",
+      "hypothesis": "퀴버넷 팟 다시 돌려 법석에",
+      "cer": 0.8,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00116.mp3",
+      "region": "gangwon",
+      "reference": "Ingress가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "잉그레스가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.3333,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00117.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Dify 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기 DP 설정 좀 바꿔야 쓰겄는데",
+      "cer": 0.2941,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00118.mp3",
+      "region": "gyeongsang",
+      "reference": "야, kubectl가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, 코백들 가 와 이래 자꾸 죽노? 로그 좀 봐둬.",
+      "cer": 0.381,
+      "terms": 1,
+      "terms_found": 0
+    },
+    {
+      "audio": "clips/syn-00119.mp3",
+      "region": "chungcheong",
+      "reference": "Redis 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "레디스 다시 띄워야 하는 거 아니예요?",
+      "cer": 0.5,
+      "terms": 1,
+      "terms_found": 0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {"region": "gyeongsang", "verbatim": "야, {term}가 와 이래 자꾸 죽노? 로그 좀 봐도.", "standard": "{term}가 왜 계속 종료되는지 로그를 확인해 주세요."},
+  {"region": "gyeongsang", "verbatim": "{term} 우째 됐노? 아직도 안 뜨나?", "standard": "{term}는 어떻게 되었나요? 아직도 실행되지 않나요?"},
+  {"region": "jeolla", "verbatim": "{term}이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.", "standard": "{term}가 왜 계속 꺼지는지 확인해 주세요."},
+  {"region": "jeolla", "verbatim": "거시기, {term} 설정 좀 바까야 쓰겄는디.", "standard": "{term} 설정을 바꿔야 할 것 같습니다."},
+  {"region": "chungcheong", "verbatim": "{term}가 왜 자꾸 죽는대유? 로그 좀 봐줘유.", "standard": "{term}가 왜 계속 종료되는지 로그를 확인해 주세요."},
+  {"region": "chungcheong", "verbatim": "{term} 다시 띄워야 하는 거 아녀유?", "standard": "{term}를 다시 실행해야 하지 않나요?"},
+  {"region": "gangwon", "verbatim": "{term}가 왜 자꾸 죽나? 로그 좀 봐주드래요.", "standard": "{term}가 왜 계속 종료되는지 로그를 확인해 주세요."},
+  {"region": "gangwon", "verbatim": "{term} 고거 아직 안 됐드래요?", "standard": "{term}는 아직 완료되지 않았나요?"},
+  {"region": "jeju", "verbatim": "{term}가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.", "standard": "{term}가 왜 계속 종료되는지 로그를 확인해 주세요."},
+  {"region": "jeju", "verbatim": "{term} 다시 돌려봅서게.", "standard": "{term}를 다시 실행해 보세요."}
+]

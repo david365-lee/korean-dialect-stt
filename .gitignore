@@ -1,0 +1,6 @@
+runs/
+**/clips/
+*.wav
+*.mp3
+__pycache__/
+.env

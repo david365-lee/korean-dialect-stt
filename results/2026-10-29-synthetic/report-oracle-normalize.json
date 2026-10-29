@@ -1,0 +1,2459 @@
+{
+  "set_type": "synthetic-diagnostic",
+  "stt_model": "reference-transcript (oracle)",
+  "language": null,
+  "llm_model": "gemma4-26b-a4b",
+  "prompt": "request",
+  "summary": {
+    "chungcheong": {
+      "utterances": 24,
+      "mean_cer": 0.0,
+      "term_recall": 1.0,
+      "normalized_term_recall": 1.0,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.2536
+    },
+    "gangwon": {
+      "utterances": 24,
+      "mean_cer": 0.0,
+      "term_recall": 1.0,
+      "normalized_term_recall": 1.0,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.1305
+    },
+    "gyeongsang": {
+      "utterances": 24,
+      "mean_cer": 0.0,
+      "term_recall": 1.0,
+      "normalized_term_recall": 1.0,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.2356
+    },
+    "jeju": {
+      "utterances": 24,
+      "mean_cer": 0.0,
+      "term_recall": 1.0,
+      "normalized_term_recall": 1.0,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.1588
+    },
+    "jeolla": {
+      "utterances": 24,
+      "mean_cer": 0.0,
+      "term_recall": 1.0,
+      "normalized_term_recall": 1.0,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.3342
+    },
+    "ALL": {
+      "utterances": 120,
+      "mean_cer": 0.0,
+      "term_recall": 1.0,
+      "normalized_term_recall": 1.0,
+      "intent_json_rate": 1.0,
+      "mean_standard_cer": 0.2225
+    }
+  },
+  "results": [
+    {
+      "audio": "clips/syn-00000.mp3",
+      "region": "jeju",
+      "reference": "PostgreSQL가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "PostgreSQL가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "PostgreSQL",
+          "symptom": "unexpected_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1429
+    },
+    {
+      "audio": "clips/syn-00001.mp3",
+      "region": "chungcheong",
+      "reference": "PostgreSQL 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "PostgreSQL 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL을 다시 시작해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "PostgreSQL",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3636
+    },
+    {
+      "audio": "clips/syn-00002.mp3",
+      "region": "gangwon",
+      "reference": "OOMKilled 고거 아직 안 됐드래요?",
+      "hypothesis": "OOMKilled 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 조치가 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "OOMKilled",
+          "symptom": "OOMKilled"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.15
+    },
+    {
+      "audio": "clips/syn-00003.mp3",
+      "region": "gyeongsang",
+      "reference": "OOMKilled 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "OOMKilled 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 현상이 어떻게 되었나요? 아직도 나타나지 않습니까?",
+        "intent": {
+          "action": "check_status",
+          "target": "OOMKilled",
+          "symptom": "error_not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3333
+    },
+    {
+      "audio": "clips/syn-00004.mp3",
+      "region": "jeju",
+      "reference": "Helm 차트 다시 돌려봅서게.",
+      "hypothesis": "Helm 차트 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트를 다시 실행해 주세요.",
+        "intent": {
+          "action": "re-run",
+          "target": "Helm chart",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0667
+    },
+    {
+      "audio": "clips/syn-00005.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Argo CD가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Argo CD가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Argo CD",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00006.mp3",
+      "region": "jeju",
+      "reference": "LiteLLM가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "LiteLLM가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM이 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "LiteLLM",
+          "symptom": "process termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2
+    },
+    {
+      "audio": "clips/syn-00007.mp3",
+      "region": "jeju",
+      "reference": "Ingress 다시 돌려봅서게.",
+      "hypothesis": "Ingress 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress를 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Ingress",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0625
+    },
+    {
+      "audio": "clips/syn-00008.mp3",
+      "region": "gyeongsang",
+      "reference": "야, LiteLLM가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, LiteLLM가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM이 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "LiteLLM",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.36
+    },
+    {
+      "audio": "clips/syn-00009.mp3",
+      "region": "jeolla",
+      "reference": "거시기, kubectl 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, kubectl 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "change_configuration",
+          "target": "kubectl",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3684
+    },
+    {
+      "audio": "clips/syn-00010.mp3",
+      "region": "chungcheong",
+      "reference": "Kubernetes Pod가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Kubernetes Pod가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Kubernetes Pod",
+          "symptom": "pod_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0645
+    },
+    {
+      "audio": "clips/syn-00011.mp3",
+      "region": "gangwon",
+      "reference": "OOMKilled가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "OOMKilled가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled가 왜 자꾸 발생하는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "OOMKilled",
+          "symptom": "restarting_due_to_oom"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1852
+    },
+    {
+      "audio": "clips/syn-00012.mp3",
+      "region": "jeolla",
+      "reference": "Argo CD이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Argo CD이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD가 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Argo CD",
+          "symptom": "termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.25
+    },
+    {
+      "audio": "clips/syn-00013.mp3",
+      "region": "gangwon",
+      "reference": "PostgreSQL 고거 아직 안 됐드래요?",
+      "hypothesis": "PostgreSQL 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "PostgreSQL",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1429
+    },
+    {
+      "audio": "clips/syn-00014.mp3",
+      "region": "gangwon",
+      "reference": "LiteLLM가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "LiteLLM가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM이 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "LiteLLM",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.12
+    },
+    {
+      "audio": "clips/syn-00015.mp3",
+      "region": "gyeongsang",
+      "reference": "CrashLoopBackOff 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "CrashLoopBackOff 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff 현상이 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "CrashLoopBackOff",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1765
+    },
+    {
+      "audio": "clips/syn-00016.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Helm 차트가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Helm 차트가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트가 왜 자꾸 종료되는 건가요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Helm chart",
+          "symptom": "repeated_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.25
+    },
+    {
+      "audio": "clips/syn-00017.mp3",
+      "region": "jeju",
+      "reference": "Redis가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Redis가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Redis",
+          "symptom": "unexpected_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1739
+    },
+    {
+      "audio": "clips/syn-00018.mp3",
+      "region": "gangwon",
+      "reference": "Argo CD가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Argo CD가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Argo CD",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0833
+    },
+    {
+      "audio": "clips/syn-00019.mp3",
+      "region": "gyeongsang",
+      "reference": "Redis 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Redis 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis가 어떻게 되었나요? 아직도 실행되지 않나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "Redis",
+          "symptom": "not_running"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0435
+    },
+    {
+      "audio": "clips/syn-00020.mp3",
+      "region": "gangwon",
+      "reference": "LiteLLM 고거 아직 안 됐드래요?",
+      "hypothesis": "LiteLLM 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "LiteLLM",
+          "symptom": "incomplete_task"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00021.mp3",
+      "region": "gangwon",
+      "reference": "Helm 차트 고거 아직 안 됐드래요?",
+      "hypothesis": "Helm 차트 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Helm chart",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1765
+    },
+    {
+      "audio": "clips/syn-00022.mp3",
+      "region": "gyeongsang",
+      "reference": "Ingress 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Ingress 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress가 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Ingress",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.16
+    },
+    {
+      "audio": "clips/syn-00023.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Deployment 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Deployment 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "modify",
+          "target": "Deployment",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3182
+    },
+    {
+      "audio": "clips/syn-00024.mp3",
+      "region": "jeolla",
+      "reference": "Dify이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Dify이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify가 자꾸 종료되는데 확인 부탁드립니다.",
+        "intent": {
+          "action": "check",
+          "target": "Dify",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.6667
+    },
+    {
+      "audio": "clips/syn-00025.mp3",
+      "region": "jeolla",
+      "reference": "LiteLLM이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "LiteLLM이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM이 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "LiteLLM",
+          "symptom": "process termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2857
+    },
+    {
+      "audio": "clips/syn-00026.mp3",
+      "region": "jeolla",
+      "reference": "Redis이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Redis이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis가 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Redis",
+          "symptom": "unexpected termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2632
+    },
+    {
+      "audio": "clips/syn-00027.mp3",
+      "region": "jeju",
+      "reference": "PostgreSQL 다시 돌려봅서게.",
+      "hypothesis": "PostgreSQL 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL을 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "PostgreSQL",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1053
+    },
+    {
+      "audio": "clips/syn-00028.mp3",
+      "region": "jeolla",
+      "reference": "Kubernetes Pod이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Kubernetes Pod이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod이 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Kubernetes Pod",
+          "symptom": "pod termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2222
+    },
+    {
+      "audio": "clips/syn-00029.mp3",
+      "region": "chungcheong",
+      "reference": "Deployment가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Deployment가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Deployment",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0714
+    },
+    {
+      "audio": "clips/syn-00030.mp3",
+      "region": "gyeongsang",
+      "reference": "PostgreSQL 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "PostgreSQL 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL이 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "PostgreSQL",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1429
+    },
+    {
+      "audio": "clips/syn-00031.mp3",
+      "region": "gyeongsang",
+      "reference": "야, OOMKilled가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, OOMKilled가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled가 왜 이렇게 자꾸 발생하나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "OOMKilled",
+          "symptom": "repeated_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3704
+    },
+    {
+      "audio": "clips/syn-00032.mp3",
+      "region": "gangwon",
+      "reference": "Dify 고거 아직 안 됐드래요?",
+      "hypothesis": "Dify 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "Dify",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2
+    },
+    {
+      "audio": "clips/syn-00033.mp3",
+      "region": "gangwon",
+      "reference": "Redis가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Redis가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Redis",
+          "symptom": "unexpected termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.087
+    },
+    {
+      "audio": "clips/syn-00034.mp3",
+      "region": "chungcheong",
+      "reference": "OOMKilled가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "OOMKilled가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 현상으로 인해 왜 자꾸 종료되는 것인가요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Pod/Process",
+          "symptom": "OOMKilled"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.4444
+    },
+    {
+      "audio": "clips/syn-00035.mp3",
+      "region": "jeju",
+      "reference": "Dify가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Dify가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Dify",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1818
+    },
+    {
+      "audio": "clips/syn-00036.mp3",
+      "region": "jeju",
+      "reference": "OOMKilled가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "OOMKilled가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 현상으로 인해 Pod가 계속해서 종료되고 있습니다. 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Pod",
+          "symptom": "OOMKilled"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.6296
+    },
+    {
+      "audio": "clips/syn-00037.mp3",
+      "region": "chungcheong",
+      "reference": "CrashLoopBackOff 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "CrashLoopBackOff 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff 상태인데 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "pod/process",
+          "symptom": "CrashLoopBackOff"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3214
+    },
+    {
+      "audio": "clips/syn-00038.mp3",
+      "region": "chungcheong",
+      "reference": "PostgreSQL가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "PostgreSQL가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL이 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "PostgreSQL",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1071
+    },
+    {
+      "audio": "clips/syn-00039.mp3",
+      "region": "chungcheong",
+      "reference": "Deployment 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Deployment 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment를 다시 배포해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "redeploy",
+          "target": "Deployment",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3182
+    },
+    {
+      "audio": "clips/syn-00040.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Deployment가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Deployment가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Deployment",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2857
+    },
+    {
+      "audio": "clips/syn-00041.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod가 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Kubernetes Pod",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2581
+    },
+    {
+      "audio": "clips/syn-00042.mp3",
+      "region": "gangwon",
+      "reference": "Deployment 고거 아직 안 됐드래요?",
+      "hypothesis": "Deployment 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Deployment",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0476
+    },
+    {
+      "audio": "clips/syn-00043.mp3",
+      "region": "jeju",
+      "reference": "Deployment가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Deployment가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Deployment",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1429
+    },
+    {
+      "audio": "clips/syn-00044.mp3",
+      "region": "jeju",
+      "reference": "kubectl가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "kubectl가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl이 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "kubectl",
+          "symptom": "unexpected_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2
+    },
+    {
+      "audio": "clips/syn-00045.mp3",
+      "region": "chungcheong",
+      "reference": "Ingress 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Ingress 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress를 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "Ingress",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2632
+    },
+    {
+      "audio": "clips/syn-00046.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Redis 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Redis 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "change_configuration",
+          "target": "Redis",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.4118
+    },
+    {
+      "audio": "clips/syn-00047.mp3",
+      "region": "chungcheong",
+      "reference": "Redis가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Redis가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Redis",
+          "symptom": "unexpected_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.087
+    },
+    {
+      "audio": "clips/syn-00048.mp3",
+      "region": "jeju",
+      "reference": "Helm 차트가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Helm 차트가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Helm chart",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00049.mp3",
+      "region": "chungcheong",
+      "reference": "Dify 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Dify 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify를 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "Dify",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3125
+    },
+    {
+      "audio": "clips/syn-00050.mp3",
+      "region": "gyeongsang",
+      "reference": "Dify 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Dify 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify가 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "Dify",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1818
+    },
+    {
+      "audio": "clips/syn-00051.mp3",
+      "region": "jeju",
+      "reference": "Redis 다시 돌려봅서게.",
+      "hypothesis": "Redis 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis를 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Redis",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0714
+    },
+    {
+      "audio": "clips/syn-00052.mp3",
+      "region": "jeju",
+      "reference": "CrashLoopBackOff가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "CrashLoopBackOff가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff가 왜 자꾸 발생하나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "CrashLoopBackOff",
+          "symptom": "restarting_loop"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2059
+    },
+    {
+      "audio": "clips/syn-00053.mp3",
+      "region": "gangwon",
+      "reference": "Deployment가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Deployment가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Deployment",
+          "symptom": "restarting/terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0714
+    },
+    {
+      "audio": "clips/syn-00054.mp3",
+      "region": "gangwon",
+      "reference": "CrashLoopBackOff가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "CrashLoopBackOff가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff가 왜 자꾸 발생하는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "CrashLoopBackOff",
+          "symptom": "restarting_loop"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1471
+    },
+    {
+      "audio": "clips/syn-00055.mp3",
+      "region": "jeolla",
+      "reference": "Helm 차트이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Helm 차트이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트가 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Helm chart",
+          "symptom": "unexpected termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.25
+    },
+    {
+      "audio": "clips/syn-00056.mp3",
+      "region": "jeolla",
+      "reference": "OOMKilled이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "OOMKilled이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 현상 때문에 자꾸 종료되는데 확인 부탁드립니다.",
+        "intent": {
+          "action": "check",
+          "target": "OOMKilled",
+          "symptom": "process termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.7391
+    },
+    {
+      "audio": "clips/syn-00057.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Helm 차트 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Helm 차트 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "modify",
+          "target": "Helm chart",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3889
+    },
+    {
+      "audio": "clips/syn-00058.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Ingress 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Ingress 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress 설정을 변경해야겠습니다.",
+        "intent": {
+          "action": "change",
+          "target": "Ingress",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3158
+    },
+    {
+      "audio": "clips/syn-00059.mp3",
+      "region": "jeolla",
+      "reference": "CrashLoopBackOff이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "CrashLoopBackOff이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff 현상이 왜 자꾸 발생하는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "CrashLoopBackOff",
+          "symptom": "restarting"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2667
+    },
+    {
+      "audio": "clips/syn-00060.mp3",
+      "region": "jeju",
+      "reference": "Ingress가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Ingress가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Ingress",
+          "symptom": "restarting"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.16
+    },
+    {
+      "audio": "clips/syn-00061.mp3",
+      "region": "gangwon",
+      "reference": "Kubernetes Pod 고거 아직 안 됐드래요?",
+      "hypothesis": "Kubernetes Pod 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "Kubernetes Pod",
+          "symptom": "not_completed"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.125
+    },
+    {
+      "audio": "clips/syn-00062.mp3",
+      "region": "gangwon",
+      "reference": "Dify가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Dify가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Dify",
+          "symptom": "restarting/terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0909
+    },
+    {
+      "audio": "clips/syn-00063.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Dify가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Dify가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify가 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Dify",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3636
+    },
+    {
+      "audio": "clips/syn-00064.mp3",
+      "region": "jeolla",
+      "reference": "거시기, LiteLLM 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, LiteLLM 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "change_configuration",
+          "target": "LiteLLM",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3684
+    },
+    {
+      "audio": "clips/syn-00065.mp3",
+      "region": "gyeongsang",
+      "reference": "LiteLLM 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "LiteLLM 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM이 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "LiteLLM",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.16
+    },
+    {
+      "audio": "clips/syn-00066.mp3",
+      "region": "jeolla",
+      "reference": "kubectl이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "kubectl이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl이 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "kubectl",
+          "symptom": "termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2857
+    },
+    {
+      "audio": "clips/syn-00067.mp3",
+      "region": "gyeongsang",
+      "reference": "Helm 차트 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Helm 차트 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트가 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Helm chart",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00068.mp3",
+      "region": "jeolla",
+      "reference": "거시기, PostgreSQL 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, PostgreSQL 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "change_configuration",
+          "target": "PostgreSQL",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3182
+    },
+    {
+      "audio": "clips/syn-00069.mp3",
+      "region": "gyeongsang",
+      "reference": "Kubernetes Pod 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Kubernetes Pod 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod가 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "status_check",
+          "target": "Kubernetes Pod",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.129
+    },
+    {
+      "audio": "clips/syn-00070.mp3",
+      "region": "jeju",
+      "reference": "Deployment 다시 돌려봅서게.",
+      "hypothesis": "Deployment 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment를 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Deployment",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0526
+    },
+    {
+      "audio": "clips/syn-00071.mp3",
+      "region": "jeju",
+      "reference": "Dify 다시 돌려봅서게.",
+      "hypothesis": "Dify 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify를 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Dify",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0769
+    },
+    {
+      "audio": "clips/syn-00072.mp3",
+      "region": "gangwon",
+      "reference": "kubectl가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "kubectl가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl이 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "kubectl",
+          "symptom": "process termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.12
+    },
+    {
+      "audio": "clips/syn-00073.mp3",
+      "region": "jeolla",
+      "reference": "거시기, OOMKilled 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, OOMKilled 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 설정을 변경해야겠습니다.",
+        "intent": {
+          "action": "change_setting",
+          "target": "OOMKilled",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2857
+    },
+    {
+      "audio": "clips/syn-00074.mp3",
+      "region": "gyeongsang",
+      "reference": "Argo CD 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Argo CD 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD가 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Argo CD",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00075.mp3",
+      "region": "chungcheong",
+      "reference": "Argo CD 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Argo CD 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD를 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "Argo CD",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2778
+    },
+    {
+      "audio": "clips/syn-00076.mp3",
+      "region": "chungcheong",
+      "reference": "Kubernetes Pod 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Kubernetes Pod 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod를 다시 시작해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "Kubernetes Pod",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.28
+    },
+    {
+      "audio": "clips/syn-00077.mp3",
+      "region": "gangwon",
+      "reference": "Ingress 고거 아직 안 됐드래요?",
+      "hypothesis": "Ingress 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress 설정이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Ingress",
+          "symptom": "not_completed"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00078.mp3",
+      "region": "gangwon",
+      "reference": "Argo CD 고거 아직 안 됐드래요?",
+      "hypothesis": "Argo CD 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Argo CD",
+          "symptom": "incomplete_task"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1765
+    },
+    {
+      "audio": "clips/syn-00079.mp3",
+      "region": "jeju",
+      "reference": "OOMKilled 다시 돌려봅서게.",
+      "hypothesis": "OOMKilled 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled된 것을 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Pod/Process",
+          "symptom": "OOMKilled"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2222
+    },
+    {
+      "audio": "clips/syn-00080.mp3",
+      "region": "jeolla",
+      "reference": "PostgreSQL이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "PostgreSQL이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL이 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "PostgreSQL",
+          "symptom": "unexpected termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.25
+    },
+    {
+      "audio": "clips/syn-00081.mp3",
+      "region": "jeolla",
+      "reference": "거시기, CrashLoopBackOff 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, CrashLoopBackOff 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff 설정을 변경해야겠습니다.",
+        "intent": {
+          "action": "change_setting",
+          "target": "CrashLoopBackOff",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2143
+    },
+    {
+      "audio": "clips/syn-00082.mp3",
+      "region": "chungcheong",
+      "reference": "Argo CD가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Argo CD가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD가 왜 자꾸 종료되는 건가요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Argo CD",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2083
+    },
+    {
+      "audio": "clips/syn-00083.mp3",
+      "region": "jeju",
+      "reference": "Kubernetes Pod가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Kubernetes Pod가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Kubernetes Pod",
+          "symptom": "restarting/terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.129
+    },
+    {
+      "audio": "clips/syn-00084.mp3",
+      "region": "gangwon",
+      "reference": "Redis 고거 아직 안 됐드래요?",
+      "hypothesis": "Redis 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Redis",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1875
+    },
+    {
+      "audio": "clips/syn-00085.mp3",
+      "region": "chungcheong",
+      "reference": "LiteLLM 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "LiteLLM 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM을 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "LiteLLM",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3158
+    },
+    {
+      "audio": "clips/syn-00086.mp3",
+      "region": "gangwon",
+      "reference": "Kubernetes Pod가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Kubernetes Pod가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Kubernetes Pod",
+          "symptom": "pod termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0645
+    },
+    {
+      "audio": "clips/syn-00087.mp3",
+      "region": "gangwon",
+      "reference": "CrashLoopBackOff 고거 아직 안 됐드래요?",
+      "hypothesis": "CrashLoopBackOff 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff 현상이 아직 해결되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "CrashLoopBackOff",
+          "symptom": "error_persistence"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1852
+    },
+    {
+      "audio": "clips/syn-00088.mp3",
+      "region": "chungcheong",
+      "reference": "Ingress가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Ingress가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress가 왜 자꾸 종료되는 건가요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Ingress",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2
+    },
+    {
+      "audio": "clips/syn-00089.mp3",
+      "region": "chungcheong",
+      "reference": "LiteLLM가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "LiteLLM가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM이 왜 자꾸 종료되는 건가요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "LiteLLM",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.24
+    },
+    {
+      "audio": "clips/syn-00090.mp3",
+      "region": "jeju",
+      "reference": "Argo CD가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "hypothesis": "Argo CD가 무사 자꾸 죽엄수과? 로그 좀 봐줍서.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD가 왜 자꾸 종료되나요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Argo CD",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00091.mp3",
+      "region": "gyeongsang",
+      "reference": "kubectl 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "kubectl 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl이 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "kubectl",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.16
+    },
+    {
+      "audio": "clips/syn-00092.mp3",
+      "region": "chungcheong",
+      "reference": "kubectl가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "kubectl가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl이 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "kubectl",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.12
+    },
+    {
+      "audio": "clips/syn-00093.mp3",
+      "region": "jeolla",
+      "reference": "Deployment이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Deployment이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Deployment",
+          "symptom": "unexpected termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2083
+    },
+    {
+      "audio": "clips/syn-00094.mp3",
+      "region": "gangwon",
+      "reference": "kubectl 고거 아직 안 됐드래요?",
+      "hypothesis": "kubectl 고거 아직 안 됐드래요?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl 작업이 아직 완료되지 않았나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "kubectl",
+          "symptom": "incomplete_task"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1667
+    },
+    {
+      "audio": "clips/syn-00095.mp3",
+      "region": "jeju",
+      "reference": "LiteLLM 다시 돌려봅서게.",
+      "hypothesis": "LiteLLM 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "LiteLLM을 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "LiteLLM",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.125
+    },
+    {
+      "audio": "clips/syn-00096.mp3",
+      "region": "chungcheong",
+      "reference": "kubectl 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "kubectl 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl을 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "kubectl",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3158
+    },
+    {
+      "audio": "clips/syn-00097.mp3",
+      "region": "jeju",
+      "reference": "Argo CD 다시 돌려봅서게.",
+      "hypothesis": "Argo CD 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD를 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Argo CD",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0667
+    },
+    {
+      "audio": "clips/syn-00098.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Argo CD 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Argo CD 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Argo CD 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "change_configuration",
+          "target": "Argo CD",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3889
+    },
+    {
+      "audio": "clips/syn-00099.mp3",
+      "region": "chungcheong",
+      "reference": "OOMKilled 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "OOMKilled 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "OOMKilled 되었는데 다시 실행해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "Pod/Process",
+          "symptom": "OOMKilled"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.4286
+    },
+    {
+      "audio": "clips/syn-00100.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Redis가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Redis가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis가 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Redis",
+          "symptom": "unexpected_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3478
+    },
+    {
+      "audio": "clips/syn-00101.mp3",
+      "region": "jeju",
+      "reference": "CrashLoopBackOff 다시 돌려봅서게.",
+      "hypothesis": "CrashLoopBackOff 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff 상태를 다시 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "CrashLoopBackOff",
+          "symptom": "CrashLoopBackOff"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2
+    },
+    {
+      "audio": "clips/syn-00102.mp3",
+      "region": "jeolla",
+      "reference": "Ingress이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "hypothesis": "Ingress이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress가 왜 자꾸 종료되는지 확인해 주세요.",
+        "intent": {
+          "action": "check",
+          "target": "Ingress",
+          "symptom": "unexpected termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2381
+    },
+    {
+      "audio": "clips/syn-00103.mp3",
+      "region": "gangwon",
+      "reference": "PostgreSQL가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "PostgreSQL가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL이 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "PostgreSQL",
+          "symptom": "unexpected_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1071
+    },
+    {
+      "audio": "clips/syn-00104.mp3",
+      "region": "chungcheong",
+      "reference": "Dify가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Dify가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify가 왜 자꾸 종료되는 건가요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Dify",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2273
+    },
+    {
+      "audio": "clips/syn-00105.mp3",
+      "region": "gyeongsang",
+      "reference": "Deployment 우째 됐노? 아직도 안 뜨나?",
+      "hypothesis": "Deployment 우째 됐노? 아직도 안 뜨나?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Deployment가 어떻게 되었나요? 아직도 나타나지 않나요?",
+        "intent": {
+          "action": "check_status",
+          "target": "Deployment",
+          "symptom": "not_appearing"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1429
+    },
+    {
+      "audio": "clips/syn-00106.mp3",
+      "region": "gyeongsang",
+      "reference": "야, Ingress가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, Ingress가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress가 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Ingress",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.32
+    },
+    {
+      "audio": "clips/syn-00107.mp3",
+      "region": "gyeongsang",
+      "reference": "야, CrashLoopBackOff가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, CrashLoopBackOff가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff가 왜 이렇게 자꾸 재시작되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "CrashLoopBackOff",
+          "symptom": "restarting_loop"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3235
+    },
+    {
+      "audio": "clips/syn-00108.mp3",
+      "region": "chungcheong",
+      "reference": "Helm 차트가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "Helm 차트가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Helm chart",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0833
+    },
+    {
+      "audio": "clips/syn-00109.mp3",
+      "region": "chungcheong",
+      "reference": "CrashLoopBackOff가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "hypothesis": "CrashLoopBackOff가 왜 자꾸 죽는대유? 로그 좀 봐줘유.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "CrashLoopBackOff가 왜 자꾸 재시작되는 건가요? 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "CrashLoopBackOff",
+          "symptom": "restarting"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2353
+    },
+    {
+      "audio": "clips/syn-00110.mp3",
+      "region": "jeju",
+      "reference": "kubectl 다시 돌려봅서게.",
+      "hypothesis": "kubectl 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl을 다시 실행해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "kubectl",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.125
+    },
+    {
+      "audio": "clips/syn-00111.mp3",
+      "region": "chungcheong",
+      "reference": "Helm 차트 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Helm 차트 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트를 다시 배포해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "redeploy",
+          "target": "Helm chart",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.3889
+    },
+    {
+      "audio": "clips/syn-00112.mp3",
+      "region": "gyeongsang",
+      "reference": "야, PostgreSQL가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, PostgreSQL가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "PostgreSQL가 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "PostgreSQL",
+          "symptom": "process_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.2857
+    },
+    {
+      "audio": "clips/syn-00113.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Kubernetes Pod 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Kubernetes Pod 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "modify",
+          "target": "Kubernetes Pod",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.28
+    },
+    {
+      "audio": "clips/syn-00114.mp3",
+      "region": "gangwon",
+      "reference": "Helm 차트가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Helm 차트가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Helm 차트가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_log",
+          "target": "Helm chart",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.0833
+    },
+    {
+      "audio": "clips/syn-00115.mp3",
+      "region": "jeju",
+      "reference": "Kubernetes Pod 다시 돌려봅서게.",
+      "hypothesis": "Kubernetes Pod 다시 돌려봅서게.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Kubernetes Pod를 다시 시작해 주세요.",
+        "intent": {
+          "action": "restart",
+          "target": "Kubernetes Pod",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.1364
+    },
+    {
+      "audio": "clips/syn-00116.mp3",
+      "region": "gangwon",
+      "reference": "Ingress가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "hypothesis": "Ingress가 왜 자꾸 죽나? 로그 좀 봐주드래요.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Ingress가 왜 자꾸 종료되는지 로그를 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "Ingress",
+          "symptom": "restarting_or_terminating"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.08
+    },
+    {
+      "audio": "clips/syn-00117.mp3",
+      "region": "jeolla",
+      "reference": "거시기, Dify 설정 좀 바까야 쓰겄는디.",
+      "hypothesis": "거시기, Dify 설정 좀 바까야 쓰겄는디.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Dify 설정을 변경해야 합니다.",
+        "intent": {
+          "action": "change_setting",
+          "target": "Dify",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.4375
+    },
+    {
+      "audio": "clips/syn-00118.mp3",
+      "region": "gyeongsang",
+      "reference": "야, kubectl가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "hypothesis": "야, kubectl가 와 이래 자꾸 죽노? 로그 좀 봐도.",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "kubectl이 왜 이렇게 자꾸 종료되나요? 로그 좀 확인해 주세요.",
+        "intent": {
+          "action": "check_logs",
+          "target": "kubectl",
+          "symptom": "frequent_termination"
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.36
+    },
+    {
+      "audio": "clips/syn-00119.mp3",
+      "region": "chungcheong",
+      "reference": "Redis 다시 띄워야 하는 거 아녀유?",
+      "hypothesis": "Redis 다시 띄워야 하는 거 아녀유?",
+      "cer": 0.0,
+      "terms": 1,
+      "terms_found": 1,
+      "normalized": {
+        "standard": "Redis를 다시 시작해야 하는 것 아닌가요?",
+        "intent": {
+          "action": "restart",
+          "target": "Redis",
+          "symptom": null
+        }
+      },
+      "normalized_terms_found": 1,
+      "intent_present": true,
+      "standard_cer": 0.4118
+    }
+  ]
+}
