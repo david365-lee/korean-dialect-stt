@@ -194,11 +194,11 @@ def main():
     hours = [7, 22, 47, 56, 84]
     costs = [16, 21, 30, 33, 42]
     pick = ['target', 'target', 'jaewon', 'target', 'target']
-    hbar_chart('gpu-cost-by-model', '외부 GPU — 모델별 총비용 (20% 상향)', 'A100 80GB · 학습+스토리지+서빙 테스트+예비비',
+    hbar_chart('gpu-cost-by-model', '외부 GPU — 모델별 총비용', 'A100 80GB · 학습+스토리지+서빙 테스트+예비비',
                models, [('gpu', costs, False)], domain=50, unit='', fmt=won, tick=10, lower_better=True, colors=pick,
                badges={i: f'{h}시간' for i, h in enumerate(hours)}, note='파랑 = 권장(large-v3-turbo LoRA). 배지 = GPU 사용 시간.')
     gpus = ['H100 80GB', 'A100 80GB', 'L40S 48GB', 'L4 24GB']
-    hbar_chart('gpu-cost-by-type', '외부 GPU — GPU 종류별 총비용 (20% 상향)', 'large-v3-turbo LoRA 기준',
+    hbar_chart('gpu-cost-by-type', '외부 GPU — GPU 종류별 총비용', 'large-v3-turbo LoRA 기준',
                gpus, [('gpu', [26, 30, 33, 33], False)], domain=50, unit='', fmt=won, tick=10, lower_better=True,
                colors=['jaewon', 'jaewon', 'target', 'target'],
                badges={0: '22시간', 1: '47시간', 2: '94시간', 3: '187시간'}, note='총비용은 비슷하고 차이는 대기 시간 — 빠른 GPU가 일정에 유리.')

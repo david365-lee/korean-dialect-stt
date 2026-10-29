@@ -8,7 +8,7 @@
 
 `v0.1.1` · 1차 완료 · 파인튜닝 전 기준선 · 2차 보류
 
-[🎙️ 비교 테스트 페이지](https://stt-test.test-ai.cloud) · [📊 발표 자료 (Gamma)](https://gamma.app/docs/ph9nxtr6waspgpm) · [🎨 요약 인포그래픽 (Canva)](https://canva.link/23vep8wd4iy0qfd)
+[🎙️ 비교 테스트 페이지](https://stt-test.test-ai.cloud) · [📊 발표 자료 (Gamma)](https://gamma.app/docs/ph9nxtr6waspgpm)
 
 </div>
 
@@ -71,6 +71,14 @@
 ### 실제 사이트에서 추출한 사례
 
 36건(합성 영문 혼합 16건 + 실제 제주어 20건)을 실제 사이트에 돌려 성공한 34건(2건은 일시 오류·한도 초과) 중 의미 판정이 갈린 사례를 골랐다.
+
+**결과가 갈린 사례 ① 영문 혼합 · 전라** — 튜닝이 CER 9.1%p 낮지만 두 모델 모두 `LiteLLM`을 놓쳐 해석 대상이 "리템" vs "미유"로 갈렸다.
+
+![비교 테스트 페이지: "LiteLLM이 왜 자꼬 꺼져븐다냐? 쪼까 봐주랑께."에 대해 jaewon-stt "리템이 왜 자꾸 꺼져분다냐?" CER 45.5%, 순수 Whisper "밑에 미유에 자꾸 꺼져 본다냐?" CER 54.5%. LLM 판정: 두 판독의 의미가 다릅니다 — 대상(리템 vs 미유).](docs/images/stt-test-diff-litellm.png)
+
+**결과가 갈린 사례 ② 실제 제주어** — 두 모델의 CER은 23.1%로 **같은데**, 튜닝은 "독괴", 순수는 "도깨"로 들어 의미가 "독" vs "도깨비"로 갈렸다. 정답은 "도리깨". 같은 오류율이라도 틀린 글자가 무엇이냐에 따라 의미가 달라진다.
+
+![비교 테스트 페이지: "도께로 허는 건 뭐 허염쩬 헙니까?"에 대해 두 모델 모두 CER 23.1%. jaewon-stt는 "독괴로"를 "독으로 하는 것은 무엇입니까?"로, 순수 Whisper는 "도깨로"를 "도깨비로 하는 것은 무엇입니까?"로 해석. LLM 판정: 의미가 다릅니다 — 대상(독 vs 도깨비).](docs/images/stt-test-diff-jeju.png)
 
 <img src="docs/images/deck-cases.jpg" alt="사례 비교 슬라이드: 튜닝이 이기기도, 지기도 한다" width="820">
 
@@ -219,9 +227,9 @@ flowchart LR
 | ✅ 완료 | 2단계 설계, `jaewon-stt`/`jaewon-tts`, 평가·증강·그래프 도구, 합성 진단 + 제주 기준선, 비교 테스트 페이지 |
 | ⏸️ 보류 | 4개 권역 실음성 기준선, 학습 데이터 구성, Whisper 파인튜닝, 해석 LLM 개선, 카나리 교체, Dialect Gateway API |
 
-### 5-1. 외부 GPU 경로 (시간·비용 20% 상향 추정)
+### 5-1. 외부 GPU 경로
 
-> 기준: A100 80GB $2.0/시간(시세 상단), 환율 1,450원, 데이터 약 500시간, 실험 4회 + 준비·대기 30%, 공통비(스토리지 300GB×2개월·서빙 테스트) 포함, 예비비 20%, **여기에 시간과 비용을 다시 20% 상향**. 결정 시점에 업체 가격 재확인 필요.
+> 기준: A100 80GB $2.0/시간(시세 상단), 환율 1,450원, 데이터 약 500시간, 실험 4회 + 준비·대기 30%, 공통비(스토리지 300GB×2개월·서빙 테스트) 포함, 예비비 20%. 결정 시점에 업체 가격 재확인 필요.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/charts/gpu-cost-by-model-dark.svg">
@@ -386,6 +394,6 @@ korean-dialect-stt/
 
 **v0.1.1** · 2026-10-29 · v0.1.0 1차 기준선·평가 체계 → v0.1.1 비교 테스트 페이지·LLM 의미 판정·2차 보류 결정
 
-발표 자료: [Gamma](https://gamma.app/docs/ph9nxtr6waspgpm) · 인포그래픽: [Canva](https://canva.link/23vep8wd4iy0qfd)
+발표 자료: [Gamma](https://gamma.app/docs/ph9nxtr6waspgpm)
 
 </div>
