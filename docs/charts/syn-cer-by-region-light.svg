@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="권역별 방언 전사 CER — prompt 효과">
+<rect width="100%" height="100%" rx="8" fill="#fcfcfb"/>
+<text x="20" y="30" font-size="16" font-weight="600" fill="#0b0b0b">권역별 방언 전사 CER — prompt 효과</text>
+<text x="20" y="50" font-size="12" fill="#52514e">합성 진단셋 120건 (권역당 24건) · 낮을수록 좋음</text>
+<rect x="20" y="62" width="12" height="12" rx="3" fill="#eb6834"/><text x="38" y="72.5" font-size="12" fill="#52514e">Whisper 기본 (prompt 없음)</text>
+<rect x="218.4" y="62" width="12" height="12" rx="3" fill="#2a78d6"/><text x="236.4" y="72.5" font-size="12" fill="#52514e">jaewon-stt (STT)</text>
+<line x1="156.0" y1="86" x2="156.0" y2="390" stroke="#e4e3df" stroke-width="1"/>
+<text x="156.0" y="406" font-size="11" text-anchor="middle" fill="#52514e">0%</text>
+<line x1="291.0" y1="86" x2="291.0" y2="390" stroke="#e4e3df" stroke-width="1"/>
+<text x="291.0" y="406" font-size="11" text-anchor="middle" fill="#52514e">25%</text>
+<line x1="426.0" y1="86" x2="426.0" y2="390" stroke="#e4e3df" stroke-width="1"/>
+<text x="426.0" y="406" font-size="11" text-anchor="middle" fill="#52514e">50%</text>
+<line x1="561.0" y1="86" x2="561.0" y2="390" stroke="#e4e3df" stroke-width="1"/>
+<text x="561.0" y="406" font-size="11" text-anchor="middle" fill="#52514e">75%</text>
+<line x1="696.0" y1="86" x2="696.0" y2="390" stroke="#e4e3df" stroke-width="1"/>
+<text x="696.0" y="406" font-size="11" text-anchor="middle" fill="#52514e">100%</text>
+<line x1="156" y1="86" x2="156" y2="390" stroke="#b9b8b2" stroke-width="1"/>
+<text x="144" y="111.5" font-size="13" text-anchor="end" fill="#0b0b0b">경상</text>
+<path d="M156,92 H382.03999999999996 Q386.03999999999996,92 386.03999999999996,96 V102 Q386.03999999999996,106 382.03999999999996,106 H156 Z" fill="#eb6834"><title>Whisper 기본 (prompt 없음): 42.6%</title></path>
+<text x="392.0" y="103" font-size="11.5" fill="#52514e">42.6%</text>
+<path d="M156,108 H258.92 Q262.92,108 262.92,112 V118 Q262.92,122 258.92,122 H156 Z" fill="#2a78d6"><title>jaewon-stt (STT): 19.8%</title></path>
+<text x="268.9" y="119" font-size="11.5" fill="#52514e">19.8%</text>
+<text x="144" y="159.5" font-size="13" text-anchor="end" fill="#0b0b0b">강원</text>
+<path d="M156,140 H392.3 Q396.3,140 396.3,144 V150 Q396.3,154 392.3,154 H156 Z" fill="#eb6834"><title>Whisper 기본 (prompt 없음): 44.5%</title></path>
+<text x="402.3" y="151" font-size="11.5" fill="#52514e">44.5%</text>
+<path d="M156,156 H271.88 Q275.88,156 275.88,160 V166 Q275.88,170 271.88,170 H156 Z" fill="#2a78d6"><title>jaewon-stt (STT): 22.2%</title></path>
+<text x="281.9" y="167" font-size="11.5" fill="#52514e">22.2%</text>
+<text x="144" y="207.5" font-size="13" text-anchor="end" fill="#0b0b0b">제주</text>
+<path d="M156,188 H461.96 Q465.96,188 465.96,192 V198 Q465.96,202 461.96,202 H156 Z" fill="#eb6834"><title>Whisper 기본 (prompt 없음): 57.4%</title></path>
+<text x="472.0" y="199" font-size="11.5" fill="#52514e">57.4%</text>
+<path d="M156,204 H291.32 Q295.32,204 295.32,208 V214 Q295.32,218 291.32,218 H156 Z" fill="#2a78d6"><title>jaewon-stt (STT): 25.8%</title></path>
+<text x="301.3" y="215" font-size="11.5" fill="#52514e">25.8%</text>
+<text x="144" y="255.5" font-size="13" text-anchor="end" fill="#0b0b0b">충청</text>
+<path d="M156,236 H422.0 Q426.0,236 426.0,240 V246 Q426.0,250 422.0,250 H156 Z" fill="#eb6834"><title>Whisper 기본 (prompt 없음): 50%</title></path>
+<text x="432.0" y="247" font-size="11.5" fill="#52514e">50%</text>
+<path d="M156,252 H308.6 Q312.6,252 312.6,256 V262 Q312.6,266 308.6,266 H156 Z" fill="#2a78d6"><title>jaewon-stt (STT): 29%</title></path>
+<text x="318.6" y="263" font-size="11.5" fill="#52514e">29%</text>
+<text x="144" y="303.5" font-size="13" text-anchor="end" fill="#0b0b0b">전라</text>
+<path d="M156,284 H391.76 Q395.76,284 395.76,288 V294 Q395.76,298 391.76,298 H156 Z" fill="#eb6834"><title>Whisper 기본 (prompt 없음): 44.4%</title></path>
+<text x="401.8" y="295" font-size="11.5" fill="#52514e">44.4%</text>
+<path d="M156,300 H311.3 Q315.3,300 315.3,304 V310 Q315.3,314 311.3,314 H156 Z" fill="#2a78d6"><title>jaewon-stt (STT): 29.5%</title></path>
+<text x="321.3" y="311" font-size="11.5" fill="#52514e">29.5%</text>
+<text x="144" y="351.5" font-size="13" text-anchor="end" fill="#0b0b0b">전체</text>
+<path d="M156,332 H410.12 Q414.12,332 414.12,336 V342 Q414.12,346 410.12,346 H156 Z" fill="#eb6834"><title>Whisper 기본 (prompt 없음): 47.8%</title></path>
+<text x="420.1" y="343" font-size="11.5" fill="#52514e">47.8%</text>
+<path d="M156,348 H288.62 Q292.62,348 292.62,352 V358 Q292.62,362 288.62,362 H156 Z" fill="#2a78d6"><title>jaewon-stt (STT): 25.3%</title></path>
+<text x="298.6" y="359" font-size="11.5" fill="#52514e">25.3%</text>
+</svg>

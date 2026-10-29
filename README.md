@@ -2,7 +2,7 @@
 
 > 경상·전라·충청·강원·제주 사투리와 한국어·영어 기술 용어가 섞인 발화를 **들린 그대로 받아쓰고(STT)**, **표준어 요청과 의도(JSON)로 해석**하는 음성 이해 파이프라인.
 
-```
+```text
 "야, Kubernetes Pod가 와 이래 자꾸 죽노? 로그 좀 봐도."   (경상도 사투리 + 영어 기술 용어)
         │  A. jaewon-stt  (방언 전사)
         ▼
@@ -19,6 +19,21 @@
 | 공개 범위 | 비공개(private) |
 | 모델 이름 | `jaewon-stt` (음성→텍스트), `jaewon-tts` (텍스트→음성) |
 | 게이트웨이 | LiteLLM (OpenAI 호환 `/v1/audio/transcriptions`, `/v1/audio/speech`) |
+
+## 한눈에 보기
+
+| 핵심 수치 | 값 | 의미 |
+| --- | --- | --- |
+| prompt 적용 효과 (합성, CER) | **47.8% → 25.3%** | 기술 용어 문장에서 오류 절반 |
+| 기술 용어 재현율 (STT → LLM) | **1.7% → 34.2% → 68.3%** | prompt와 LLM 복원이 단계적으로 개선 |
+| 실제 제주어 기준선 CER | **28.5%** (prompt 없음 30.1%) | 일상 방언에는 prompt 효과가 작음 → 파인튜닝 필요 |
+| STT 오류 비용 (표준어 CER) | **+11.5%p** (합성) / **+8.4%p** (제주) | 전사를 고치면 LLM 단계도 그만큼 좋아짐 |
+| 의도 JSON 성공률 | **100%** | 후속 자동화 연결 가능 |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/dataset-cer-dark.svg">
+  <img alt="방언 전사 CER: 합성 진단 120건에서 Whisper 기본 47.8%, jaewon-stt 25.3%. 실제 제주어 150건에서 Whisper 기본 30.1%, jaewon-stt 28.5%." src="docs/charts/dataset-cer-light.svg" width="760">
+</picture>
 
 ---
 
@@ -68,6 +83,25 @@
 | --- | --- | --- | --- |
 | **A. 방언 전사** | 음성 → 들린 그대로의 방언 문장 | `jaewon-stt` (Whisper, 이후 파인튜닝 모델) | CER, 용어 재현율 |
 | **B. 표준어 변환·의도 해석** | A 결과 → 표준어 + 의도 JSON | LLM | 표준어 CER, 용어 복원율, JSON 성공률 |
+
+```mermaid
+flowchart LR
+    U["🎙️ 사투리 + 영어 기술 용어 음성"] --> A["A. jaewon-stt<br/>방언 그대로 전사"]
+    A -->|verbatim| B["B. LLM 정규화<br/>표준어 + 의도 JSON"]
+    B -->|standard| S["표준어 요청문"]
+    B -->|intent| I["{action, target, symptom}"]
+    I --> X["후속 동작<br/>로그 조회 · 티켓 · RAG"]
+    A -.평가.-> M1["CER · 용어 재현율"]
+    B -.평가.-> M2["표준어 CER · 용어 복원 · JSON 성공률"]
+```
+
+| 비교 | 단일 단계 (음성 → 표준어 직접) | **두 단계 (이 프로젝트)** |
+| --- | --- | --- |
+| 정량 평가 | 정답과 발화가 달라 CER 측정 불가 | 단계별로 CER 측정 가능 |
+| 오류 원인 추적 | 인식 오류와 해석 오류가 섞임 | oracle 비교로 분리 |
+| 환각 위험 | 들리지 않은 표준어 생성 가능 | 전사는 들린 그대로, 해석은 LLM이 문맥으로 |
+| 원문 확인 | 원문 소실 | `verbatim`과 `standard` 동시 제공 |
+| 모델 교체 | 전체 재학습 | STT·LLM 각각 교체 |
 
 Whisper가 처음부터 표준어를 출력하도록 학습하지 않는 이유:
 
@@ -139,20 +173,47 @@ Whisper가 처음부터 표준어를 출력하도록 학습하지 않는 이유:
 
 > ⚠️ **합성 음성 진단값이며 기준선(baseline)이 아니다.** 화자 1종 계열(Google Standard A~D), 사투리 억양 없음. 실제 사람 음성 기준선은 ④~⑥ 제주어 결과로 갱신한다.
 
+#### 평가셋 비교
+
+| 항목 | 합성 진단셋 | 실제 제주어 (JSS) |
+| --- | --- | --- |
+| 건수 | 120 (5개 권역 × 24) | 150 (제주) |
+| 화자 | Google TTS Standard A~D (합성) | 제주어 원어민 1명 (실음성) |
+| 사투리 억양 | 없음 (문장 어미·어휘만 사투리) | 있음 |
+| 기술 용어 | 문장마다 1개 (12종) | 없음 (일상 구술) |
+| 표준어 정답 | 문장 틀에 함께 작성 | JIT 병렬 말뭉치 매칭 (149건) |
+| 정규화 prompt | `request` (요청문 재작성) | `faithful` (충실 번역) |
+| 용도 | 진단 (기준선 아님) | **기준선** |
+
 **전체 (120건)**
 
 | 구성 | CER ↓ | 용어 재현율 ↑ | 정규화 후 용어 ↑ | 표준어 CER ↓ | 의도 JSON ↑ |
 | --- | --- | --- | --- | --- | --- |
 | ② Whisper, prompt 없음 | 47.8% | 1.7% | — | — | — |
 | ① **jaewon-stt** (prompt) + LLM | **25.3%** | **34.2%** | **68.3%** | 33.7% | 100% |
-| ③ 정답 전사 + LLM (oracle, 상한) | 0% | 100% | 100% | 22.3% | 100% |
+| ③ 정답 전사 + LLM (oracle, 상한) | 0% | 100% | 100% | 22.2% | 100% |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/stage-term-funnel-dark.svg">
+  <img alt="기술 용어가 살아남는 비율: STT 결과 기준 Whisper 기본 1.7%, jaewon-stt 34.2%, oracle 100%. LLM 정규화 후 jaewon-stt 68.3%, oracle 100%." src="docs/charts/stage-term-funnel-light.svg" width="760">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/syn-cer-by-region-dark.svg">
+  <img alt="권역별 방언 전사 CER. Whisper 기본 / jaewon-stt: 경상 42.6/19.8, 강원 44.5/22.2, 제주 57.4/25.8, 충청 50/29, 전라 44.4/29.5, 전체 47.8/25.3 퍼센트." src="docs/charts/syn-cer-by-region-light.svg" width="760">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/syn-term-by-region-dark.svg">
+  <img alt="권역별 기술 용어 재현율. Whisper 기본은 0~4.2%, jaewon-stt STT는 29.2~41.7%, LLM 정규화 후 66.7~70.8%." src="docs/charts/syn-term-by-region-light.svg" width="760">
+</picture>
 
 **권역별 — ① jaewon-stt / ② prompt 없음**
 
 | 권역 | CER ① | CER ② | 용어 ① | 용어 ② | 정규화 후 용어 ① | 표준어 CER ① |
 | --- | --- | --- | --- | --- | --- | --- |
-| 경상 | 19.8% | 42.7% | 29.2% | 4.2% | 66.7% | 33.0% |
-| 강원 | 22.2% | 44.6% | 33.3% | 0.0% | 66.7% | 25.1% |
+| 경상 | 19.8% | 42.6% | 29.2% | 4.2% | 66.7% | 33.0% |
+| 강원 | 22.2% | 44.5% | 33.3% | 0.0% | 66.7% | 25.1% |
 | 제주 | 25.8% | 57.4% | 41.7% | 4.2% | 70.8% | 30.7% |
 | 충청 | 29.0% | 50.0% | 37.5% | 0.0% | 70.8% | 31.7% |
 | 전라 | 29.6% | 44.4% | 29.2% | 0.0% | 66.7% | 48.2% |
@@ -161,8 +222,27 @@ Whisper가 처음부터 표준어를 출력하도록 학습하지 않는 이유:
 
 1. **prompt만으로 CER이 거의 절반**(47.8% → 25.3%)이 되고, 라틴 표기 용어 재현율이 1.7% → 34.2%로 오른다. prompt 없는 Whisper는 용어를 거의 전부 한글 발음(`잉그레스`, `디플로이먼트`)으로 쓴다.
 2. **LLM 정규화가 용어를 두 배로 복원**한다(34.2% → 68.3%). `포스트그레스 QL` → `PostgreSQL`, `잉그레스` → `Ingress`.
-3. **STT 오류 비용**: 같은 LLM이라도 정답 전사를 넣으면 표준어 CER 22.3%, STT 결과를 넣으면 33.7% — 약 11.4%p가 STT 오류에서 온다. 용어는 oracle 100% 대비 31.7%p 손실. → **파인튜닝의 1순위 목표는 기술 용어 전사**다.
+3. **STT 오류 비용**: 같은 LLM이라도 정답 전사를 넣으면 표준어 CER 22.2%, STT 결과를 넣으면 33.7% — 약 11.4%p가 STT 오류에서 온다. 용어는 oracle 100% 대비 31.7%p 손실. → **파인튜닝의 1순위 목표는 기술 용어 전사**다.
 4. 전라 표준어 CER(48.2%)이 높은 것은 `거시기 … 쓰겄는디` 같은 틀이 의역되기 쉬워서다. 표준어 CER은 의역에 민감하므로 의미 일치 평가(LLM judge 등)를 보완할 예정이다.
+
+**권역별 순위 (jaewon-stt, 합성 진단)**
+
+| 지표 | 가장 좋음 | 가장 나쁨 | 격차 |
+| --- | --- | --- | --- |
+| 방언 CER | 경상 19.8% | 전라 29.6% | 9.8%p |
+| prompt에 의한 CER 개선 폭 | 제주 −31.6%p | 전라 −14.8%p | 16.8%p |
+| STT 용어 재현율 | 제주 41.7% | 경상·전라 29.2% | 12.5%p |
+| 표준어 CER | 강원 25.1% | 전라 48.2% | 23.1%p |
+
+**STT 오류 유형 (합성 진단 사례 기반)**
+
+| 유형 | 예 | 담당 단계 | 대응 |
+| --- | --- | --- | --- |
+| 기술 용어 한글 전사 | `Ingress` → `잉그레스`, `Deployment` → `디플로이먼트` | A | 용어 집중 학습, 라틴 표기 정답 |
+| 기술 용어 분절 | `PostgreSQL` → `포스트그레스 QL`, `Argo CD` → `Ago CD` | A | 동일 |
+| 사투리 어미 변형 | `죽엄수과` → `죽음습과`, `우째 됐노` → `우제된 노` | A | 실음성 방언 데이터 파인튜닝 |
+| 띄어쓰기 오류의 의미 왜곡 | `우제된 노` → LLM이 "노드"로 오해석 | A→B | A 개선 + LLM에 원문 불확실성 고지 |
+| 용어 복원 | `잉그레스` → `Ingress` (성공) | B | 현행 유지 |
 
 대표 사례 (`results/2026-10-29-synthetic/report-jaewon-stt.json`):
 
@@ -185,7 +265,21 @@ Whisper가 처음부터 표준어를 출력하도록 학습하지 않는 이유:
 | ④ **jaewon-stt** + LLM (faithful) | **28.5%** (중앙값 26.5%) | 52.5% | 100% |
 | ⑥ 정답 전사 + LLM (oracle, 상한) | 0% | 44.2% | 100% |
 
-- 문장별 분포(④): CER 10% 이하 20건, 50% 초과 14건. prompt가 더 나은 문장 41건, 더 나쁜 문장 24건, 동일 85건.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/jeju-cer-histogram-dark.svg">
+  <img alt="실제 제주어 문장별 CER 분포. Whisper 기본 / jaewon-stt 문장 수: 0-10% 19/18, 10-20% 32/32, 20-30% 35/40, 30-40% 19/28, 40-50% 21/13, 50% 이상 24/19." src="docs/charts/jeju-cer-histogram-light.svg" width="760">
+</picture>
+
+| CER 구간 | Whisper 기본 | jaewon-stt | 변화 |
+| --- | --- | --- | --- |
+| 0–10% | 19 | 18 | −1 |
+| 10–20% | 32 | 32 | 0 |
+| 20–30% | 35 | 40 | +5 |
+| 30–40% | 19 | 28 | +9 |
+| 40–50% | 21 | 13 | −8 |
+| 50% 이상 | 24 | 19 | −5 |
+
+- 문장별 분포(④): prompt가 더 나은 문장 41건, 더 나쁜 문장 24건, 동일 85건. 고오류(40% 이상) 문장이 45건 → 32건으로 줄고 중간 구간으로 이동했다.
 - **prompt 효과가 작다**(30.1% → 28.5%). 현재 prompt는 기술 용어·IT 문장 중심이라 일상 제주어에는 도움이 제한적이다. 합성 진단에서 본 큰 개선은 주로 **기술 용어** 효과였다.
 - **Whisper가 방언을 표준어 쪽으로 "고쳐" 받아쓴다**: `익숙헌 사름이 … 놓면` → `익숙한 사람이 … 놓으면`, `안허여` → `않어요`. 듣기는 맞았어도 방언 전사 기준으로는 오류다. 2단계 설계(방언형 그대로 전사)가 파인튜닝으로 고쳐야 할 핵심 동작이다.
 - **어휘 단위 오인식**: `ᄎᆞᆫ물`(짠물) → `촌물`, `청묵` → `청목은 … 어죽에?` — 제주어 고유 어휘는 STT와 LLM 모두 약하다. oracle에서도 `ᄎᆞᆫ물`을 `찬물`로 번역해, 제주어 어휘 지식이 LLM 단계의 한계이기도 하다.
@@ -198,7 +292,21 @@ Whisper가 처음부터 표준어를 출력하도록 학습하지 않는 이유:
 
 (인용은 출처 표기 하에 평가 결과 설명용으로 2건만 수록. 원 데이터: CC BY-NC-SA 4.0)
 
-### 4.5 종합
+### 4.5 STT 오류 비용 비교
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/std-cer-stt-cost-dark.svg">
+  <img alt="표준어 변환 CER. 합성 진단: jaewon-stt+LLM 33.7%, oracle 22.2%. 실제 제주어: jaewon-stt+LLM 52.5%, oracle 44.2%." src="docs/charts/std-cer-stt-cost-light.svg" width="760">
+</picture>
+
+| 평가셋 | STT 결과 → LLM | 정답 전사 → LLM (oracle) | STT 오류 비용 | 비용 비율 |
+| --- | --- | --- | --- | --- |
+| 합성 진단 | 33.7% | 22.2% | +11.5%p | 표준어 오류의 34% |
+| 실제 제주어 | 52.5% | 44.2% | +8.4%p | 표준어 오류의 16% |
+
+제주어에서는 LLM 자체의 번역 한계(44.2%)가 STT 오류보다 크다 → 제주어는 **STT 파인튜닝과 함께 정규화 모델 개선**(방언 사전·few-shot, JIT 병렬 데이터 활용)이 필요하다.
+
+### 4.6 종합
 
 | 질문 | 답 (현재 근거) |
 | --- | --- |
@@ -234,11 +342,13 @@ Whisper가 처음부터 표준어를 출력하도록 학습하지 않는 이유:
 
 ## 6. 저장소 구조
 
-```
+```text
 korean-dialect-stt/
 ├── README.md                     # 이 문서
 ├── docs/
-│   └── PIPELINE.md               # 상세 설계 메모
+│   ├── PIPELINE.md               # 상세 설계 메모
+│   └── charts/                   # README 그래프 (SVG, 라이트/다크)
+├── make_charts.py                # results/ → docs/charts/ 그래프 재생성
 ├── evaluate_baseline.py          # 평가 (STT + 정규화, 권역별 지표)
 ├── synthesize_augmentation.py    # jaewon-tts 기반 학습용 합성 음성 생성
 ├── prepare_jss.py                # 공개 제주어 음성 평가셋 구성 (Range 다운로드)
@@ -332,6 +442,19 @@ Groq 무료 계층은 분당 요청 수 제한이 있다. 같은 키를 쓰는 �
 | 4 | 동일 평가셋으로 비교 → `jaewon-stt` 백엔드 교체(카나리) | ⏳ | 3 |
 | 5 | 서비스 통합 (음성 장애 접수, 상담, 문서 검색) | ⏳ | 4 |
 
+```mermaid
+flowchart LR
+    S0["0. 설계·alias·도구"]:::done --> S1a["1a. 합성 진단"]:::done --> S1b["1b. 제주 실음성 기준선"]:::done
+    S1b --> S1c["1c. 4개 권역 기준선"]:::todo
+    S1c --> S2["2. 데이터 구성"]:::todo --> S3["3. LoRA 파인튜닝"]:::todo --> S4["4. 비교·카나리 교체"]:::todo --> S5["5. 서비스 통합"]:::todo
+    D1[/"AI Hub 신청"/]:::need -.-> S1c
+    D2[/"외부 GPU"/]:::need -.-> S3
+    D3[/"TTS 약관 확인"/]:::need -.-> S2
+    classDef done fill:#1baf7a,stroke:#0f7a54,color:#fff
+    classDef todo fill:#f0efec,stroke:#8a8984,color:#0b0b0b
+    classDef need fill:#fff4dc,stroke:#c98500,color:#0b0b0b
+```
+
 권장 학습 설정(초안): large-v3-turbo + LoRA(r=32, attention/FFN), 학습률 1e-4, fp16/bf16, SpecAugment, 화자 단위 train/dev/test 분리, 권역 균형 샘플링, 매 epoch 권역별 CER·용어 재현율 검증.
 
 ---
@@ -348,6 +471,25 @@ Groq 무료 계층은 분당 요청 수 제한이 있다. 같은 키를 쓰는 �
 | 표준어 CER | 33.7% | **oracle 수준(≈22%)에 근접** | STT 오류 비용 11.4%p 제거 |
 | 의도 JSON 성공률 | 100% | 100% 유지 | 현행 유지 |
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/targets-higher-dark.svg">
+  <img alt="현재 대비 목표(높을수록 좋음): STT 용어 재현율 34.2%→90%, 정규화 후 용어 복원 68.3%→95%, 의도 JSON 100%→100%." src="docs/charts/targets-higher-light.svg" width="760">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/charts/targets-lower-dark.svg">
+  <img alt="현재 대비 목표(낮을수록 좋음): 실제 제주어 CER 28.5%→17.5%, 합성 표준어 CER 33.7%→22.2%." src="docs/charts/targets-lower-light.svg" width="760">
+</picture>
+
+**시나리오별 예상 (파인튜닝 후)**
+
+| 시나리오 | 현재 | 예상 | 근거 |
+| --- | --- | --- | --- |
+| 경상 사투리 + 기술 용어 장애 보고 | 용어 ⅓만 정확, LLM이 ⅔까지 복원 | 용어 대부분 정확, intent 자동 실행 가능 | 용어 집중 학습 |
+| 제주어 일상 발화 전사 | CER 28.5%, 표준어로 "고쳐 씀" | CER 15~20%, 방언형 유지 | 방언형 정답 학습 |
+| 제주어 → 표준어 번역 | 표준어 CER 52.5% (LLM 한계 44%) | LLM 개선 병행 시 40% 이하 | JIT 병렬 few-shot·사전 |
+| prompt 없는 일반 STT 대비 | 합성 CER −22.5%p | 추가 −10%p 이상 | 2단계 이후 실측 |
+
 기대 효과:
 - 사투리 화자가 **말로 장애를 보고**해도 대상(`target`)과 증상(`symptom`)이 정확히 추출되어 로그 조회·티켓 생성 자동화가 가능해진다.
 - 기술 용어가 라틴 표기로 정확히 남아 **검색·RAG 질의 품질**이 올라간다.
@@ -361,22 +503,29 @@ Groq 무료 계층은 분당 요청 수 제한이 있다. 같은 키를 쓰는 �
 
 ### 10.1 아키텍처
 
+```mermaid
+flowchart TB
+    C["사용자<br/>웹 마이크 · 콜센터 · 메신저"] -->|HTTPS 업로드/스트리밍| G["Dialect Gateway API<br/>인증 · 용량/길이 검사 · 요청 한도 · 원본 미보관"]
+    G --> L1["LiteLLM: jaewon-stt"]
+    L1 -->|카나리 가중치| F["외부 GPU<br/>파인튜닝 Whisper"]
+    L1 -.fallback.-> Q["Groq whisper-large-v3<br/>+ prompt (현행)"]
+    G --> L2["LiteLLM: 정규화 LLM"]
+    L2 --> R{"intent.action"}
+    R -->|로그 확인| K["로그 조회"]
+    R -->|장애 보고| T["티켓 생성"]
+    R -->|질문| A["RAG 검색"]
+    G -.선택.-> L3["LiteLLM: jaewon-tts<br/>음성 답변"]
+    G -.-> O["관측: Langfuse · Grafana · 주간 회귀 평가"]
 ```
-[사용자: 웹 마이크 / 콜센터 / 메신저 음성]
-        │  HTTPS (업로드 or 스트리밍)
-        ▼
-[Dialect Gateway API]  ── 인증, 용량·길이 검사, 요청 한도, 녹음 원본 미보관
-        │
-        ├─▶ LiteLLM  model=jaewon-stt ──▶ 외부 GPU 추론 서버 (파인튜닝 Whisper)
-        │                                  └ fallback: Groq whisper-large-v3 + prompt
-        │
-        ├─▶ LiteLLM  model=<정규화 LLM> ──▶ 표준어 + intent JSON
-        │
-        ├─▶ 후속 동작: 로그 조회 / 티켓 생성 / RAG 검색 (intent.action 라우팅)
-        │
-        └─▶ (선택) LiteLLM model=jaewon-tts ──▶ 음성 답변
-관측: Langfuse 트레이스(단계별 지연·토큰), Grafana(요청 수·오류율·지연), 주간 회귀 평가
-```
+
+**서빙 방식 비교**
+
+| 방식 | 지연 | 비용 | 품질 | 운영 부담 | 권장 단계 |
+| --- | --- | --- | --- | --- | --- |
+| Groq Whisper + prompt (현행) | 낮음 | 무료 계층 / 사용량 과금 | 기준선 | 낮음 | 지금 |
+| 외부 GPU + 파인튜닝 Whisper | 중간 (GPU 사양 의존) | GPU 시간 과금 | 목표 | 중간 | 4단계 이후 |
+| 하이브리드 (카나리 + fallback) | 낮음~중간 | 혼합 | 목표 + 가용성 | 중간 | 전환 기간 |
+| 온디바이스 (증류 모델) | 매우 낮음 | 단말 | 낮음 | 높음 | 장기 검토 |
 
 ### 10.2 API 설계 (제안)
 

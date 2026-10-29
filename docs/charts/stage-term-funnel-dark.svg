@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="310" viewBox="0 0 760 310" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" role="img" aria-label="기술 용어가 살아남는 비율 — 단계별">
+<rect width="100%" height="100%" rx="8" fill="#1a1a19"/>
+<text x="20" y="30" font-size="16" font-weight="600" fill="#f0efec">기술 용어가 살아남는 비율 — 단계별</text>
+<text x="20" y="50" font-size="12" fill="#c3c2b7">합성 진단셋 전체 120건 · 높을수록 좋음</text>
+<rect x="20" y="62" width="12" height="12" rx="3" fill="#d95926"/><text x="38" y="72.5" font-size="12" fill="#c3c2b7">Whisper 기본 (prompt 없음)</text>
+<rect x="218.4" y="62" width="12" height="12" rx="3" fill="#3987e5"/><text x="236.4" y="72.5" font-size="12" fill="#c3c2b7">jaewon-stt (STT)</text>
+<rect x="373.6" y="62" width="12" height="12" rx="3" fill="#9085e9"/><text x="391.6" y="72.5" font-size="12" fill="#c3c2b7">jaewon-stt + LLM 정규화</text>
+<rect x="557.6" y="62" width="12" height="12" rx="3" fill="#199e70"/><text x="575.6" y="72.5" font-size="12" fill="#c3c2b7">정답 전사 + LLM (oracle, 상한)</text>
+<line x1="156.0" y1="86" x2="156.0" y2="262" stroke="#2e2e2c" stroke-width="1"/>
+<text x="156.0" y="278" font-size="11" text-anchor="middle" fill="#c3c2b7">0%</text>
+<line x1="291.0" y1="86" x2="291.0" y2="262" stroke="#2e2e2c" stroke-width="1"/>
+<text x="291.0" y="278" font-size="11" text-anchor="middle" fill="#c3c2b7">25%</text>
+<line x1="426.0" y1="86" x2="426.0" y2="262" stroke="#2e2e2c" stroke-width="1"/>
+<text x="426.0" y="278" font-size="11" text-anchor="middle" fill="#c3c2b7">50%</text>
+<line x1="561.0" y1="86" x2="561.0" y2="262" stroke="#2e2e2c" stroke-width="1"/>
+<text x="561.0" y="278" font-size="11" text-anchor="middle" fill="#c3c2b7">75%</text>
+<line x1="696.0" y1="86" x2="696.0" y2="262" stroke="#2e2e2c" stroke-width="1"/>
+<text x="696.0" y="278" font-size="11" text-anchor="middle" fill="#c3c2b7">100%</text>
+<line x1="156" y1="86" x2="156" y2="262" stroke="#57564f" stroke-width="1"/>
+<text x="144" y="127.5" font-size="13" text-anchor="end" fill="#f0efec">STT 결과</text>
+<path d="M156,92 H161.18 Q165.18,92 165.18,96 V102 Q165.18,106 161.18,106 H156 Z" fill="#d95926"><title>Whisper 기본 (prompt 없음): 1.7%</title></path>
+<text x="171.2" y="103" font-size="11.5" fill="#c3c2b7">1.7%</text>
+<path d="M156,108 H336.68 Q340.68,108 340.68,112 V118 Q340.68,122 336.68,122 H156 Z" fill="#3987e5"><title>jaewon-stt (STT): 34.2%</title></path>
+<text x="346.7" y="119" font-size="11.5" fill="#c3c2b7">34.2%</text>
+<path d="M156,140 H692.0 Q696.0,140 696.0,144 V150 Q696.0,154 692.0,154 H156 Z" fill="#199e70"><title>정답 전사 + LLM (oracle, 상한): 100%</title></path>
+<text x="702.0" y="151" font-size="11.5" fill="#c3c2b7">100%</text>
+<text x="144" y="207.5" font-size="13" text-anchor="end" fill="#f0efec">LLM 정규화 후</text>
+<path d="M156,204 H520.8199999999999 Q524.8199999999999,204 524.8199999999999,208 V214 Q524.8199999999999,218 520.8199999999999,218 H156 Z" fill="#9085e9"><title>jaewon-stt + LLM 정규화: 68.3%</title></path>
+<text x="530.8" y="215" font-size="11.5" fill="#c3c2b7">68.3%</text>
+<path d="M156,220 H692.0 Q696.0,220 696.0,224 V230 Q696.0,234 692.0,234 H156 Z" fill="#199e70"><title>정답 전사 + LLM (oracle, 상한): 100%</title></path>
+<text x="702.0" y="231" font-size="11.5" fill="#c3c2b7">100%</text>
+<text x="20" y="296" font-size="11.5" fill="#c3c2b7">oracle의 STT 결과 100%는 정답 전사를 그대로 넣었다는 뜻(측정값 아님).</text>
+</svg>
